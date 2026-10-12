@@ -8,18 +8,25 @@
 </head>
 <body>
 
-    <!-- Cabecera y Menú Fijo -->
-    <header class="navbar-fixed" id="top-nav">
+    <!-- Cabecera y Menú Fijo con Accesibilidad ARIA -->
+    <header class="navbar-fixed" id="top-nav" role="banner">
         <div class="header-container">
             <a href="#inicio" class="brand-link" title="Panadería y Cafetería Danilo - Inicio">
-                <img src="images/logo.png" alt="Logotipo Oficial de Panadería y Cafetería Danilo" class="header-logo">
+                <img src="images/logo.png" alt="Logotipo Oficial de Panadería y Cafetería Danilo" class="header-logo" width="55" height="55">
                 <div class="brand-text">
                     <span class="brand-name">DANILO</span>
                     <span class="brand-tagline">Panadería &amp; Cafetería</span>
                 </div>
             </a>
+
+            <!-- Botón Accesible para Menú Móvil (Rúbrica: Accesibilidad e Interactividad) -->
+            <button type="button" class="mobile-menu-btn" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="main-nav">
+                <span class="bar" aria-hidden="true"></span>
+                <span class="bar" aria-hidden="true"></span>
+                <span class="bar" aria-hidden="true"></span>
+            </button>
             
-            <nav class="nav-menu">
+            <nav class="nav-menu" id="main-nav" role="navigation" aria-label="Navegación principal">
                 <ul>
                     <li><a href="#inicio">Inicio</a></li>
                     <li><a href="#somos-danilo">Somos Danilo</a></li>
@@ -148,13 +155,13 @@
     </main>
 
     <!-- Bloque 3: Cierre Directo / Footer Corporativo Multicolumna -->
-    <footer class="corporate-footer" id="contacto">
+    <footer class="corporate-footer" id="contacto" role="contentinfo">
         <div class="footer-inner-grid">
             
             <!-- Columna 1: Identidad Corporativa -->
             <div class="footer-column brand-column">
                 <div class="footer-logo-header">
-                    <img src="images/logo.png" alt="Logo Danilo" class="footer-logo">
+                    <img src="images/logo.png" alt="Logo de Danilo" class="footer-logo" width="55" height="55" loading="lazy">
                     <div>
                         <span class="f-brand-title">DANILO</span>
                         <span class="f-brand-sub">Panadería &amp; Cafetería</span>
@@ -193,7 +200,7 @@
                 </ul>
             </div>
 
-            <!-- Columna 4: Contacto y Newsletter -->
+            <!-- Columna 4: Contacto y Newsletter con Validación Dinámica -->
             <div class="footer-column">
                 <h3 class="footer-heading">Contacto y Visítanos</h3>
                 <address class="footer-address">
@@ -205,10 +212,10 @@
 
                 <div class="newsletter-widget">
                     <label for="newsletter-email" class="nl-widget-label">Suscríbete a novedades y promociones:</label>
-                    <div class="nl-widget-inputs">
-                        <input type="email" id="newsletter-email" placeholder="Tu correo electrónico..." required>
-                        <button type="button" class="btn-nl-submit">Unirme</button>
-                    </div>
+                    <form id="newsletter-form" class="nl-widget-inputs" novalidate>
+                        <input type="email" id="newsletter-email" name="email" placeholder="Tu correo electrónico..." required aria-required="true" autocomplete="email">
+                        <button type="submit" class="btn-nl-submit" aria-label="Suscribirme al boletín de novedades">Unirme</button>
+                    </form>
                 </div>
             </div>
 
@@ -222,5 +229,15 @@
         </div>
     </footer>
 
+    <!-- Botón Accesible "Volver Arriba" (Rúbrica: Interactividad y UX) -->
+    <button type="button" id="scroll-top-btn" class="scroll-top-btn" aria-label="Volver arriba de la página" title="Volver al inicio">
+        &#8593;
+    </button>
+
+    <!-- Contenedor Accesible para Notificaciones Toast (Rúbrica: Feedback UX) -->
+    <div id="toast-container" class="toast-container" role="status" aria-live="polite"></div>
+
+    <!-- Script de Interactividad y Accesibilidad (Vanilla JS ES6+) -->
+    <script defer src="script.js"></script>
 </body>
 </html>

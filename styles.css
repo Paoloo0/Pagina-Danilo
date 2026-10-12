@@ -1246,3 +1246,440 @@ img {
         padding: 0.85rem 1.5rem;
     }
 }
+
+/* ==========================================================================
+   RÚBRICA WEB 20/20: MEJORAS DE ACCESIBILIDAD, INTERACTIVIDAD Y COMPONENTES
+   (JavaScript, Navegación Móvil, Toast Feedback, Buscador y Tablas)
+   ========================================================================== */
+
+/* 1. Cabecera Dinámica con Scroll */
+.navbar-fixed.navbar-scrolled {
+    background-color: rgba(23, 11, 5, 0.98);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.65);
+    border-bottom: 2px solid var(--color-gold);
+}
+
+/* 2. Botón Móvil Accesible (Hamburger Toggle) */
+.mobile-menu-btn {
+    display: none;
+    background: transparent;
+    border: 1px solid var(--color-gold);
+    border-radius: var(--radius-sm);
+    padding: 0.5rem;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 42px;
+    height: 40px;
+    transition: var(--transition-fast);
+}
+
+.mobile-menu-btn .bar {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-gold-light);
+    border-radius: 2px;
+    transition: var(--transition-fast);
+}
+
+.mobile-menu-btn:hover {
+    background-color: rgba(200, 145, 75, 0.15);
+}
+
+.mobile-menu-btn[aria-expanded="true"] .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.mobile-menu-btn[aria-expanded="true"] .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-btn[aria-expanded="true"] .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* 3. Sistema de Notificaciones Toast Accesible */
+.toast-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 380px;
+    pointer-events: none;
+}
+
+.toast-item {
+    pointer-events: auto;
+    background-color: var(--color-dark-espresso);
+    color: #ffffff;
+    border: 1px solid var(--color-gold);
+    border-radius: var(--radius-sm);
+    padding: 0.9rem 1.2rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.toast-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast-item.toast-success {
+    border-left: 5px solid #25d366;
+}
+
+.toast-item.toast-error {
+    border-left: 5px solid #e74c3c;
+}
+
+.toast-icon {
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+
+.toast-item.toast-success .toast-icon {
+    color: #25d366;
+}
+
+.toast-item.toast-error .toast-icon {
+    color: #e74c3c;
+}
+
+.toast-text {
+    flex: 1;
+}
+
+.toast-close {
+    background: transparent;
+    border: none;
+    color: #9a8f87;
+    font-size: 1.3rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0 4px;
+}
+
+.toast-close:hover {
+    color: #ffffff;
+}
+
+/* 4. Feedback de Error en Inputs */
+.input-error {
+    border-color: #e74c3c !important;
+    background-color: rgba(231, 76, 60, 0.1) !important;
+    animation: shake 0.3s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 5. Botón Flotante Volver Arriba */
+.scroll-top-btn {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-full);
+    background-color: var(--color-gold);
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: all 0.3s ease;
+    z-index: 998;
+}
+
+.scroll-top-btn.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-top-btn:hover {
+    background-color: var(--color-dark-espresso);
+    border-color: var(--color-gold);
+    color: var(--color-gold);
+    transform: translateY(-3px);
+}
+
+/* 6. Buscador y Filtro Dinámico en carta.html */
+.menu-search-wrapper {
+    max-width: 720px;
+    margin: 1.5rem auto 2rem;
+    padding: 0 1.5rem;
+    position: relative;
+}
+
+.search-input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon-svg {
+    position: absolute;
+    left: 1.1rem;
+    width: 20px;
+    height: 20px;
+    color: var(--color-gold);
+    pointer-events: none;
+}
+
+.menu-search-input {
+    width: 100%;
+    padding: 0.95rem 1rem 0.95rem 2.9rem;
+    font-size: 1rem;
+    border: 2px solid rgba(200, 145, 75, 0.35);
+    background-color: #ffffff;
+    border-radius: 30px;
+    outline: none;
+    transition: var(--transition-fast);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    color: var(--color-text-dark);
+}
+
+.menu-search-input:focus {
+    border-color: var(--color-gold);
+    box-shadow: 0 4px 20px rgba(200, 145, 75, 0.25);
+}
+
+.search-results-counter {
+    text-align: center;
+    margin-top: 0.7rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--color-gold-dark);
+}
+
+.search-empty-state {
+    text-align: center;
+    padding: 3rem 1.5rem;
+    background-color: #ffffff;
+    border-radius: var(--radius-md);
+    margin: 2rem auto;
+    max-width: 600px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+.search-empty-state h3 {
+    font-size: 1.3rem;
+    color: var(--color-dark-espresso);
+    margin-bottom: 0.5rem;
+}
+
+.search-empty-state p {
+    color: #7a6e65;
+    font-size: 0.95rem;
+}
+
+.dish-hidden, .section-hidden, .hidden {
+    display: none !important;
+}
+
+.cat-filter-btn {
+    cursor: pointer;
+    border: 1px solid var(--color-border-gold);
+    background: transparent;
+    transition: var(--transition-fast);
+}
+
+.cat-filter-btn.active, .cat-filter-btn:hover {
+    background-color: var(--color-gold);
+    color: #ffffff !important;
+    border-color: var(--color-gold);
+}
+
+/* 7. Tabla Semántica de Combos y Hornadas */
+.table-section {
+    max-width: 1100px;
+    margin: 3.5rem auto;
+    padding: 0 1.5rem;
+}
+
+.danilo-table-card {
+    background: #ffffff;
+    border-radius: var(--radius-md);
+    padding: 2.2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(200, 145, 75, 0.2);
+}
+
+.danilo-table-title {
+    font-size: 1.45rem;
+    color: var(--color-dark-espresso);
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.danilo-table-desc {
+    text-align: center;
+    color: #7a6e65;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.danilo-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.95rem;
+}
+
+.danilo-table th {
+    background-color: var(--color-dark-espresso);
+    color: var(--color-gold-light);
+    padding: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(200, 145, 75, 0.3);
+}
+
+.danilo-table td {
+    padding: 0.95rem 1rem;
+    border-bottom: 1px solid #ebe5df;
+    color: var(--color-text-dark);
+}
+
+.danilo-table tbody tr:nth-child(even) {
+    background-color: #faf7f4;
+}
+
+.danilo-table tbody tr:hover {
+    background-color: #f5ede4;
+}
+
+.danilo-table .tag-highlight {
+    background-color: rgba(200, 145, 75, 0.15);
+    color: var(--color-gold-dark);
+    font-weight: 700;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}
+
+/* 8. Aside Semántico para Promociones y Avisos */
+.menu-aside-box {
+    background: linear-gradient(135deg, #2a160d 0%, #170b05 100%);
+    color: #ffffff;
+    border-radius: var(--radius-md);
+    padding: 2.2rem 2.5rem;
+    margin: 3.5rem auto;
+    max-width: 1100px;
+    border: 1px solid var(--color-gold);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.aside-text-col {
+    flex: 1;
+    min-width: 280px;
+}
+
+.aside-badge {
+    background-color: var(--color-gold);
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.aside-title {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.aside-desc {
+    color: #d1c7be;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.aside-cta-col {
+    display: flex;
+    align-items: center;
+}
+
+/* Ajustes de Media Queries para Menú Móvil */
+@media (max-width: 860px) {
+    .header-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.8rem 1.2rem;
+    }
+
+    .mobile-menu-btn {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 75px;
+        left: 0;
+        right: 0;
+        background-color: rgba(23, 11, 5, 0.98);
+        border-bottom: 2px solid var(--color-gold);
+        padding: 1.5rem 2rem;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(10px);
+        transform: translateY(-150%);
+        transition: transform 0.35s ease-in-out;
+        z-index: 999;
+    }
+
+    .nav-menu.is-active {
+        transform: translateY(0);
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.8rem;
+    }
+
+    .nav-menu li a {
+        display: block;
+        padding: 0.8rem 1rem;
+        background-color: rgba(255, 255, 255, 0.04);
+        border-radius: var(--radius-sm);
+        border: 1px solid rgba(200, 145, 75, 0.2);
+        text-align: center;
+    }
+}

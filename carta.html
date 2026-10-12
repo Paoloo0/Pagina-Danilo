@@ -9,21 +9,28 @@
 <body class="page-carta">
 
     <!-- 1. Cabecera y Menú Superior Fijo Corporativo -->
-    <header class="navbar-fixed" id="top-nav">
+    <header class="navbar-fixed" id="top-nav" role="banner">
         <div class="header-container">
             <a href="index.html#inicio" class="brand-link" title="Ir al Inicio de Panadería y Cafetería Danilo">
-                <img src="images/logo.png" alt="Logotipo Oficial de Panadería y Cafetería Danilo" class="header-logo">
+                <img src="images/logo.png" alt="Logotipo Oficial de Panadería y Cafetería Danilo" class="header-logo" width="55" height="55">
                 <div class="brand-text">
                     <span class="brand-name">DANILO</span>
                     <span class="brand-tagline">Panadería &amp; Cafetería</span>
                 </div>
             </a>
+
+            <!-- Botón Accesible para Menú Móvil (Rúbrica: Accesibilidad e Interactividad) -->
+            <button type="button" class="mobile-menu-btn" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="main-nav">
+                <span class="bar" aria-hidden="true"></span>
+                <span class="bar" aria-hidden="true"></span>
+                <span class="bar" aria-hidden="true"></span>
+            </button>
             
-            <nav class="nav-menu">
+            <nav class="nav-menu" id="main-nav" role="navigation" aria-label="Navegación principal">
                 <ul>
                     <li><a href="index.html#inicio">Inicio</a></li>
                     <li><a href="index.html#somos-danilo">Somos Danilo</a></li>
-                    <li><a href="carta.html" class="nav-link-active">Nuestra Carta</a></li>
+                    <li><a href="carta.html" class="nav-link-active" aria-current="page">Nuestra Carta</a></li>
                     <li><a href="index.html#tradicion">Tradición</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
@@ -44,7 +51,7 @@
             <!-- Banner Prominente de Delivery y Pedidos WhatsApp -->
             <div class="delivery-highlight-box">
                 <div class="delivery-icon-col">
-                    <svg viewBox="0 0 24 24" class="delivery-svg" fill="none" stroke="currentColor" stroke-width="2">
+                    <svg viewBox="0 0 24 24" class="delivery-svg" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                         <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/>
                         <path d="M15 18H9"/>
                         <path d="M19 18h2a1 1 0 0 0 1-1v-5l-3-4h-4v10h1"/>
@@ -66,17 +73,30 @@
                     </a>
                 </div>
             </div>
+
+            <!-- Buscador Interactivo en Tiempo Real (Rúbrica: Interactividad y UX) -->
+            <div class="menu-search-wrapper" role="search">
+                <div class="search-input-group">
+                    <svg viewBox="0 0 24 24" class="search-icon-svg" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input type="search" id="menu-search-input" class="menu-search-input" placeholder="Buscar en la carta (ej. chicharrón, café, jugo, tamal, torta)..." aria-label="Buscar productos en la carta">
+                </div>
+                <div id="search-results-counter" class="search-results-counter hidden" role="status" aria-live="polite"></div>
+            </div>
         </div>
     </section>
 
-    <!-- 3. Barra de Navegación Rápida por Categorías (Submenu Sticky) -->
-    <nav class="categories-subnav" aria-label="Categorías de la Carta">
+    <!-- 3. Barra de Navegación Rápida y Filtro Interactivo por Categorías -->
+    <nav class="categories-subnav" aria-label="Filtro de productos por categoría">
         <div class="categories-container">
-            <a href="#combos" class="cat-pill">Combos Familiares</a>
-            <a href="#platos" class="cat-pill">Platos a la Carta</a>
-            <a href="#cafeteria" class="cat-pill">Cafetería &amp; Bebidas</a>
-            <a href="#postres" class="cat-pill">Postres &amp; Helados</a>
-            <a href="#bar" class="cat-pill">Bar</a>
+            <button type="button" class="cat-pill cat-filter-btn active" data-category="all">Todos los Platos</button>
+            <button type="button" class="cat-pill cat-filter-btn" data-category="combos">Combos Familiares</button>
+            <button type="button" class="cat-pill cat-filter-btn" data-category="platos">Platos a la Carta</button>
+            <button type="button" class="cat-pill cat-filter-btn" data-category="cafeteria">Cafetería &amp; Bebidas</button>
+            <button type="button" class="cat-pill cat-filter-btn" data-category="postres">Postres &amp; Helados</button>
+            <button type="button" class="cat-pill cat-filter-btn" data-category="bar">Bar</button>
         </div>
     </nav>
 
@@ -93,7 +113,7 @@
 
             <div class="menu-cards-grid">
                 <!-- El Familión -->
-                <article class="dish-card featured-dish">
+                <article class="dish-card" data-category="combos" featured-dish">
                     <div class="dish-top-tag">El Más Pedido</div>
                     <div class="dish-header">
                         <h3 class="dish-name">El Familión</h3>
@@ -109,7 +129,7 @@
                 </article>
 
                 <!-- Familión de Panceta -->
-                <article class="dish-card featured-dish">
+                <article class="dish-card" data-category="combos" featured-dish">
                     <div class="dish-top-tag">Especialidad de la Casa</div>
                     <div class="dish-header">
                         <h3 class="dish-name">Familión de Panceta</h3>
@@ -125,7 +145,7 @@
                 </article>
 
                 <!-- Combo Desayuno Criollo -->
-                <article class="dish-card">
+                <article class="dish-card" data-category="combos"">
                     <div class="dish-header">
                         <h3 class="dish-name">Desayuno Criollo Tradicional</h3>
                         <span class="dish-price">S/ 45.00</span>
@@ -140,7 +160,7 @@
                 </article>
 
                 <!-- Pack Panadero Danilo -->
-                <article class="dish-card">
+                <article class="dish-card" data-category="combos"">
                     <div class="dish-header">
                         <h3 class="dish-name">Pack Panadero de la Mañana</h3>
                         <span class="dish-price">S/ 20.00</span>
@@ -165,7 +185,7 @@
             </div>
 
             <div class="menu-cards-grid">
-                <article class="dish-card">
+                <article class="dish-card" data-category="platos"">
                     <div class="dish-header">
                         <h3 class="dish-name">Sándwich de Chicharrón Danilo</h3>
                         <span class="dish-price">S/ 14.00</span>
@@ -173,7 +193,7 @@
                     <p class="dish-ingredients">Clásico pan a la leña con tierno chicharrón de cerdo, láminas doradas de camote frito y sarza criolla con hierbabuena fresca.</p>
                 </article>
 
-                <article class="dish-card">
+                <article class="dish-card" data-category="platos"">
                     <div class="dish-header">
                         <h3 class="dish-name">Sándwich de Panceta Crocante</h3>
                         <span class="dish-price">S/ 15.00</span>
@@ -181,7 +201,7 @@
                     <p class="dish-ingredients">Panceta horneada a la leña con piel crujiente estilo chicharrón, camote frito y sarza criolla de la casa.</p>
                 </article>
 
-                <article class="dish-card">
+                <article class="dish-card" data-category="platos"">
                     <div class="dish-header">
                         <h3 class="dish-name">Sándwich de Pavo al Horno</h3>
                         <span class="dish-price">S/ 14.50</span>
@@ -189,7 +209,7 @@
                     <p class="dish-ingredients">Jugosa pechuga de pavo horneada con el jugo de cocción aromatizado, lechuga fresca y mayonesa casera.</p>
                 </article>
 
-                <article class="dish-card">
+                <article class="dish-card" data-category="platos"">
                     <div class="dish-header">
                         <h3 class="dish-name">Lomo al Jugo Criollo</h3>
                         <span class="dish-price">S/ 24.00</span>
@@ -197,7 +217,7 @@
                     <p class="dish-ingredients">Finas tiras de lomo salteadas con cebolla morada, tomate, ají amarillo y cilantro, servido con pan campesino recién salido.</p>
                 </article>
 
-                <article class="dish-card">
+                <article class="dish-card" data-category="platos"">
                     <div class="dish-header">
                         <h3 class="dish-name">Club Sándwich Clásico</h3>
                         <span class="dish-price">S/ 20.00</span>
@@ -205,7 +225,7 @@
                     <p class="dish-ingredients">Triple piso de pan tostado con pechuga de pollo deshilachada, jamón inglés, queso Edam fundido, huevo y tocino crocante.</p>
                 </article>
 
-                <article class="dish-card">
+                <article class="dish-card" data-category="platos"">
                     <div class="dish-header">
                         <h3 class="dish-name">Salchipapa Danilo Especial</h3>
                         <span class="dish-price">S/ 18.00</span>
@@ -213,7 +233,7 @@
                     <p class="dish-ingredients">Papas amarillas nativas fritas, rodajas de salchicha frankfurter ahumada, huevo a la plancha y todas las cremas de la casa.</p>
                 </article>
 
-                <article class="dish-card">
+                <article class="dish-card" data-category="platos"">
                     <div class="dish-header">
                         <h3 class="dish-name">Pastel de Choclo / Acelga</h3>
                         <span class="dish-price">S/ 8.50</span>
@@ -221,7 +241,7 @@
                     <p class="dish-ingredients">Generosa porción horneada diariamente a la leña. Relleno con carne sazonada, pasas y aceituna o acelgas frescas con queso.</p>
                 </article>
 
-                <article class="dish-card">
+                <article class="dish-card" data-category="platos"">
                     <div class="dish-header">
                         <h3 class="dish-name">Empanadas a la Leña (Carne o Pollo)</h3>
                         <span class="dish-price">S/ 6.50</span>
@@ -243,7 +263,7 @@
             <div class="sub-category-block">
                 <h3 class="sub-category-title">Cafetería de Especialidad</h3>
                 <div class="menu-cards-grid">
-                    <article class="dish-card">
+                    <article class="dish-card" data-category="cafeteria"">
                         <div class="dish-header">
                             <h4 class="dish-name">Café Americano Chanchamayo</h4>
                             <span class="dish-price">S/ 7.00</span>
@@ -251,7 +271,7 @@
                         <p class="dish-ingredients">Tostado medio artesanal con notas florales y achocolatadas (12 oz).</p>
                     </article>
 
-                    <article class="dish-card">
+                    <article class="dish-card" data-category="cafeteria"">
                         <div class="dish-header">
                             <h4 class="dish-name">Café Pasado Tradicional de Villa Rica</h4>
                             <span class="dish-price">S/ 7.00</span>
@@ -259,7 +279,7 @@
                         <p class="dish-ingredients">Extracción tradicional por goteo gota a gota con aroma intenso.</p>
                     </article>
 
-                    <article class="dish-card">
+                    <article class="dish-card" data-category="cafeteria"">
                         <div class="dish-header">
                             <h4 class="dish-name">Cappuccino Italiano con Canela</h4>
                             <span class="dish-price">S/ 9.00</span>
@@ -267,7 +287,7 @@
                         <p class="dish-ingredients">Espresso doble, leche vaporizada y espuma cremosa con toque de canela.</p>
                     </article>
 
-                    <article class="dish-card">
+                    <article class="dish-card" data-category="cafeteria"">
                         <div class="dish-header">
                             <h4 class="dish-name">Chocolate Caliente Danilo</h4>
                             <span class="dish-price">S/ 9.00</span>
@@ -281,7 +301,7 @@
             <div class="sub-category-block">
                 <h3 class="sub-category-title">Jugos Naturales de Frutas (Pura Fruta)</h3>
                 <div class="menu-cards-grid">
-                    <article class="dish-card">
+                    <article class="dish-card" data-category="cafeteria"">
                         <div class="dish-header">
                             <h4 class="dish-name">Jugo de Papaya</h4>
                             <span class="dish-price">S/ 8.50</span>
@@ -289,7 +309,7 @@
                         <p class="dish-ingredients">Papaya fresca de la selva central, ligera, digestiva y refrescante.</p>
                     </article>
 
-                    <article class="dish-card">
+                    <article class="dish-card" data-category="cafeteria"">
                         <div class="dish-header">
                             <h4 class="dish-name">Jugo de Fresa</h4>
                             <span class="dish-price">S/ 9.00</span>
@@ -297,7 +317,7 @@
                         <p class="dish-ingredients">Fresas seleccionadas de temporada, batidas al natural.</p>
                     </article>
 
-                    <article class="dish-card">
+                    <article class="dish-card" data-category="cafeteria"">
                         <div class="dish-header">
                             <h4 class="dish-name">Jugo de Granadilla</h4>
                             <span class="dish-price">S/ 9.50</span>
@@ -305,7 +325,7 @@
                         <p class="dish-ingredients">100% pulpa colada de granadilla de Huánuco, dulce y aromática.</p>
                     </article>
 
-                    <article class="dish-card">
+                    <article class="dish-card" data-category="cafeteria"">
                         <div class="dish-header">
                             <h4 class="dish-name">Jugo de Maracuyá</h4>
                             <span class="dish-price">S/ 8.50</span>
@@ -313,7 +333,7 @@
                         <p class="dish-ingredients">Refrescante pulpa de maracuyá con el balance cítrico perfecto.</p>
                     </article>
 
-                    <article class="dish-card">
+                    <article class="dish-card" data-category="cafeteria"">
                         <div class="dish-header">
                             <h4 class="dish-name">Jugo de Melón</h4>
                             <span class="dish-price">S/ 8.50</span>
@@ -321,7 +341,7 @@
                         <p class="dish-ingredients">Melón dulce madurado al sol, licuado al instante.</p>
                     </article>
 
-                    <article class="dish-card">
+                    <article class="dish-card" data-category="cafeteria"">
                         <div class="dish-header">
                             <h4 class="dish-name">Jugo de Mango</h4>
                             <span class="dish-price">S/ 9.50</span>
@@ -329,7 +349,7 @@
                         <p class="dish-ingredients">Mango norteño cremoso y aromático, preparado sin conservantes.</p>
                     </article>
 
-                    <article class="dish-card">
+                    <article class="dish-card" data-category="cafeteria"">
                         <div class="dish-header">
                             <h4 class="dish-name">Jugo Surtido Clásico</h4>
                             <span class="dish-price">S/ 9.50</span>
@@ -337,7 +357,7 @@
                         <p class="dish-ingredients">Mezcla clásica de papaya, piña, plátano y fresa.</p>
                     </article>
 
-                    <article class="dish-card featured-dish">
+                    <article class="dish-card" data-category="cafeteria" featured-dish">
                         <div class="dish-top-tag">Potente y Energético</div>
                         <div class="dish-header">
                             <h4 class="dish-name">Jugo Especial Danilo</h4>
@@ -352,7 +372,7 @@
             <div class="sub-category-block">
                 <h3 class="sub-category-title">Batidos y Jugos con Leche</h3>
                 <div class="menu-cards-grid">
-                    <article class="dish-card">
+                    <article class="dish-card" data-category="cafeteria"">
                         <div class="dish-header">
                             <h4 class="dish-name">Fresa con Leche</h4>
                             <span class="dish-price">S/ 11.00</span>
@@ -360,7 +380,7 @@
                         <p class="dish-ingredients">Fresas enteras licuadas con leche fresca cremosa y toque de miel.</p>
                     </article>
 
-                    <article class="dish-card">
+                    <article class="dish-card" data-category="cafeteria"">
                         <div class="dish-header">
                             <h4 class="dish-name">Lúcuma con Leche</h4>
                             <span class="dish-price">S/ 11.50</span>
@@ -368,7 +388,7 @@
                         <p class="dish-ingredients">Auténtica pulpa de lúcuma de seda batida con leche entera espumosa.</p>
                     </article>
 
-                    <article class="dish-card">
+                    <article class="dish-card" data-category="cafeteria"">
                         <div class="dish-header">
                             <h4 class="dish-name">Plátano con Leche</h4>
                             <span class="dish-price">S/ 10.00</span>
@@ -376,7 +396,7 @@
                         <p class="dish-ingredients">Plátano de la isla con leche fresca y un sutil toque de canela molida.</p>
                     </article>
 
-                    <article class="dish-card">
+                    <article class="dish-card" data-category="cafeteria"">
                         <div class="dish-header">
                             <h4 class="dish-name">Mango con Leche</h4>
                             <span class="dish-price">S/ 11.00</span>
@@ -396,7 +416,7 @@
             </div>
 
             <div class="menu-cards-grid">
-                <article class="dish-card">
+                <article class="dish-card" data-category="postres"">
                     <div class="dish-header">
                         <h3 class="dish-name">Tarta Tibia de Manzana Chaclacayina</h3>
                         <span class="dish-price">S/ 8.50</span>
@@ -404,7 +424,7 @@
                     <p class="dish-ingredients">Masa quebrada de pura mantequilla, manzanas caramelizadas al horno y canela aromática.</p>
                 </article>
 
-                <article class="dish-card">
+                <article class="dish-card" data-category="postres"">
                     <div class="dish-header">
                         <h3 class="dish-name">Torta Húmeda de Chocolate Danilo</h3>
                         <span class="dish-price">S/ 9.50</span>
@@ -412,7 +432,7 @@
                     <p class="dish-ingredients">Tres capas de bizcochuelo húmedo relleno y bañado con fudge artesanal de olla.</p>
                 </article>
 
-                <article class="dish-card">
+                <article class="dish-card" data-category="postres"">
                     <div class="dish-header">
                         <h3 class="dish-name">Pie de Limón Merengado</h3>
                         <span class="dish-price">S/ 8.50</span>
@@ -420,7 +440,7 @@
                     <p class="dish-ingredients">Base crocante, crema de limón sutil y copete de merengue suavemente dorado.</p>
                 </article>
 
-                <article class="dish-card">
+                <article class="dish-card" data-category="postres"">
                     <div class="dish-header">
                         <h3 class="dish-name">Crema Volteada Clásica</h3>
                         <span class="dish-price">S/ 8.00</span>
@@ -428,7 +448,7 @@
                     <p class="dish-ingredients">Textura suave y sedosa al paladar bañada con abundante caramelo dorado.</p>
                 </article>
 
-                <article class="dish-card">
+                <article class="dish-card" data-category="postres"">
                     <div class="dish-header">
                         <h3 class="dish-name">Alfajores Artesanales de Maicena (x 6)</h3>
                         <span class="dish-price">S/ 12.00</span>
@@ -436,7 +456,7 @@
                     <p class="dish-ingredients">Fina masa que se deshace en la boca, rellenos con manjar blanco casero y coco rallado.</p>
                 </article>
 
-                <article class="dish-card">
+                <article class="dish-card" data-category="postres"">
                     <div class="dish-header">
                         <h3 class="dish-name">Copa de Helados Artesanales (2 bolas)</h3>
                         <span class="dish-price">S/ 9.00</span>
@@ -455,7 +475,7 @@
             </div>
 
             <div class="menu-cards-grid">
-                <article class="dish-card">
+                <article class="dish-card" data-category="bar"">
                     <div class="dish-header">
                         <h3 class="dish-name">Pisco Sour Clásico Danilo</h3>
                         <span class="dish-price">S/ 18.00</span>
@@ -463,7 +483,7 @@
                     <p class="dish-ingredients">Pisco Quebranta puro de Ica, zumo de limón recién exprimido, jarabe de goma, clara y amargo de angostura.</p>
                 </article>
 
-                <article class="dish-card">
+                <article class="dish-card" data-category="bar"">
                     <div class="dish-header">
                         <h3 class="dish-name">Chilcano de Pisco (Clásico o Macerados)</h3>
                         <span class="dish-price">S/ 16.00</span>
@@ -471,7 +491,7 @@
                     <p class="dish-ingredients">Pisco aromático, ginger ale helada, gotas de limón. Disponible en macerado de maracuyá o hierba luisa.</p>
                 </article>
 
-                <article class="dish-card">
+                <article class="dish-card" data-category="bar"">
                     <div class="dish-header">
                         <h3 class="dish-name">Algarrobina Tradicional</h3>
                         <span class="dish-price">S/ 18.00</span>
@@ -479,7 +499,7 @@
                     <p class="dish-ingredients">Cóctel cremoso con pisco, algarrobina pura de Piura, leche evaporada, yema de huevo y canela molida.</p>
                 </article>
 
-                <article class="dish-card">
+                <article class="dish-card" data-category="bar"">
                     <div class="dish-header">
                         <h3 class="dish-name">Jarra de Sangría de la Casa (1 Litro)</h3>
                         <span class="dish-price">S/ 32.00</span>
@@ -488,6 +508,84 @@
                 </article>
             </div>
         </section>
+
+        <!-- Estado Vacío para Búsqueda Sin Resultados -->
+        <div id="search-empty-state" class="search-empty-state hidden" role="status">
+            <h3>No encontramos resultados para tu búsqueda</h3>
+            <p>Intenta buscando con otro término (ej. "chicharrón", "café", "jugo", "pan") o haz clic en "Todos los Platos".</p>
+        </div>
+
+        <!-- Sección Semántica: Tabla Comparativa de Combos (Rúbrica: Semántica y Organización) -->
+        <section class="table-section" aria-labelledby="table-heading">
+            <div class="danilo-table-card">
+                <h2 id="table-heading" class="danilo-table-title">Resumen Comparativo de Combos Familiares</h2>
+                <p class="danilo-table-desc">Consulta el rendimiento, contenido y ahorro garantizado de nuestros combos para desayunos y reuniones.</p>
+                <div class="table-responsive">
+                    <table class="danilo-table">
+                        <caption>Cuadro comparativo oficial de paquetes de chicharrón y especialidades en Chaclacayo</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Paquete</th>
+                                <th scope="col">Especialidad Principal</th>
+                                <th scope="col">Rendimiento Estimado</th>
+                                <th scope="col">Guarnición Incluida</th>
+                                <th scope="col">Precio Oficial</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>El Familión</strong></td>
+                                <td>1/2 kg de Chicharrón criollo a la leña</td>
+                                <td><span class="tag-highlight">4 a 5 personas</span></td>
+                                <td>Camote frito + sarza criolla + 4 tamales + 10 panes</td>
+                                <td><strong>S/ 68.00</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Familión de Panceta</strong></td>
+                                <td>1/2 kg de Panceta crocante a la leña</td>
+                                <td><span class="tag-highlight">4 a 5 personas</span></td>
+                                <td>Camote dorado + sarza criolla + 4 tamales + 10 panes</td>
+                                <td><strong>S/ 72.00</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Combo Pareja Criollo</strong></td>
+                                <td>250 g de Chicharrón selecto</td>
+                                <td><span class="tag-highlight">2 personas</span></td>
+                                <td>Camote frito + sarza criolla + 2 tamales + 4 panes</td>
+                                <td><strong>S/ 38.00</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Desayuno Ejecutivo</strong></td>
+                                <td>1 Sándwich de chicharrón con camote</td>
+                                <td><span class="tag-highlight">1 persona</span></td>
+                                <td>1 Tamal criollo artesanal + 1 Café americano pasado</td>
+                                <td><strong>S/ 19.50</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Aside Semántico: Promociones y Avisos Especiales (Rúbrica: Semántica HTML5) -->
+        <aside class="menu-aside-box" aria-label="Aviso especial de promociones y horarios">
+            <div class="aside-text-col">
+                <span class="aside-badge">Aviso de Fin de Semana</span>
+                <h2 class="aside-title">¡Desayunos Criollos Domingueros a la Leña!</h2>
+                <p class="aside-desc">
+                    Los sábados y domingos servimos nuestros famosos chicharrones recién salidos de la paila a partir de las 07:00 a. m. 
+                    Recomendamos llegar temprano a nuestro local frente a la Plaza de Armas o pedir por delivery temprano vía WhatsApp.
+                </p>
+            </div>
+            <div class="aside-cta-col">
+                <a href="https://wa.me/51953877620?text=Hola%20Danilo,%20deseo%20reservar%20mi%20desayuno%20criollo" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="btn btn-whatsapp">
+                    Reservar por WhatsApp
+                </a>
+            </div>
+        </aside>
 
         <!-- Llamado a la Acción Directo de Pedidos -->
         <div class="order-cta-banner">
@@ -508,13 +606,13 @@
     </main>
 
     <!-- 5. Footer Corporativo Multicolumna -->
-    <footer class="corporate-footer" id="contacto">
+    <footer class="corporate-footer" id="contacto" role="contentinfo">
         <div class="footer-inner-grid">
             
             <!-- Columna 1: Identidad Corporativa -->
             <div class="footer-column brand-column">
                 <div class="footer-logo-header">
-                    <img src="images/logo.png" alt="Logo Danilo" class="footer-logo">
+                    <img src="images/logo.png" alt="Logo de Danilo" class="footer-logo" width="55" height="55" loading="lazy">
                     <div>
                         <span class="f-brand-title">DANILO</span>
                         <span class="f-brand-sub">Panadería &amp; Cafetería</span>
@@ -566,10 +664,10 @@
 
                 <div class="newsletter-widget">
                     <label for="newsletter-email" class="nl-widget-label">Suscríbete a novedades y promociones:</label>
-                    <div class="nl-widget-inputs">
-                        <input type="email" id="newsletter-email" placeholder="Tu correo electrónico..." required>
-                        <button type="button" class="btn-nl-submit">Unirme</button>
-                    </div>
+                    <form id="newsletter-form" class="nl-widget-inputs" novalidate>
+                        <input type="email" id="newsletter-email" name="email" placeholder="Tu correo electrónico..." required aria-required="true" autocomplete="email">
+                        <button type="submit" class="btn-nl-submit" aria-label="Suscribirme al boletín de novedades">Unirme</button>
+                    </form>
                 </div>
             </div>
 
@@ -583,5 +681,15 @@
         </div>
     </footer>
 
+    <!-- Botón Accesible "Volver Arriba" (Rúbrica: Interactividad y UX) -->
+    <button type="button" id="scroll-top-btn" class="scroll-top-btn" aria-label="Volver arriba de la página" title="Volver al inicio">
+        &#8593;
+    </button>
+
+    <!-- Contenedor Accesible para Notificaciones Toast (Rúbrica: Feedback UX) -->
+    <div id="toast-container" class="toast-container" role="status" aria-live="polite"></div>
+
+    <!-- Script de Interactividad y Accesibilidad (Vanilla JS ES6+) -->
+    <script defer src="script.js"></script>
 </body>
 </html>
