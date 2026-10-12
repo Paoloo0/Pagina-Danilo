@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panadería &amp; Cafetería Danilo | Chaclacayo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Cabecera y Menú Fijo -->
+    <header class="navbar-fixed" id="top-nav">
+        <div class="header-container">
+            <a href="#inicio" class="brand-link" title="Panadería y Cafetería Danilo - Inicio">
+                <img src="images/logo.png" alt="Logotipo Oficial de Panadería y Cafetería Danilo" class="header-logo">
+                <div class="brand-text">
+                    <span class="brand-name">DANILO</span>
+                    <span class="brand-tagline">Panadería &amp; Cafetería</span>
+                </div>
+            </a>
+            
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#somos-danilo">Somos Danilo</a></li>
+                    <li><a href="carta.html">Nuestra Carta</a></li>
+                    <li><a href="#tradicion">Tradición</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenido Principal de la Landing Page -->
+    <main>
+        <!-- Bloque 1: Hero con Video de Fondo y Sección SOMOS DANILO Inmediata -->
+        <section class="hero-section" id="inicio">
+            <div class="video-container">
+                <video autoplay muted loop playsinline class="hero-video" poster="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1600&q=80">
+                    <source src="videos/video.mp4" type="video/mp4">
+                    <source src="videos/danilo_presentacion.mp4" type="video/mp4">
+                    <source src="https://assets.mixkit.co/videos/preview/mixkit-baker-taking-a-tray-of-freshly-baked-bread-out-of-40113-large.mp4" type="video/mp4">
+                    Tu navegador no soporta video HTML5.
+                </video>
+                <div class="hero-overlay"></div>
+            </div>
+
+            <div class="hero-content">
+                <h1 class="hero-title">El Auténtico Sabor Tradicional de Chaclacayo</h1>
+                <p class="hero-subtitle">
+                    Más de cuatro décadas ofreciendo los mejores chicharrones a la leña, jugos naturales de fruta fresca, postres caseros y café de altura frente a la Plaza de Armas.
+                </p>
+                <div class="hero-actions">
+                    <a href="carta.html" class="btn btn-hero-gold">Ver Nuestra Carta</a>
+                    <a href="#contacto" class="btn btn-hero-outline">Cómo llegar</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 1 (Continuación): Sección 'SOMOS DANILO' (4 Tarjetas Horizontales Oscuras) -->
+        <section class="somos-danilo-section" id="somos-danilo">
+            <div class="somos-container">
+                <div class="section-heading text-center">
+                    <span class="subheading-gold">Nuestros Pilares</span>
+                    <h2 class="section-title text-white">SOMOS DANILO</h2>
+                    <p class="section-desc text-muted-light">
+                        Tradición familiar, sazón criolla a la leña y pasión por los ingredientes peruanos de la más alta calidad.
+                    </p>
+                </div>
+
+                <div class="cards-grid">
+                    <!-- Tarjeta 1: Desayunos Criollos -->
+                    <article class="feature-card">
+                        <div class="icon-circle">
+                            <svg viewBox="0 0 24 24" class="svg-icon" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2C6.5 2 3 6.5 3 12c0 3 1.8 5.7 4.5 7.2L12 22l4.5-2.8c2.7-1.5 4.5-4.2 4.5-7.2 0-5.5-3.5-10-9-10z"/>
+                                <path d="M8 9c1.5 1.5 2 4 1 6"/>
+                                <path d="M16 9c-1.5 1.5-2 4-1 6"/>
+                                <line x1="12" y1="7" x2="12" y2="15"/>
+                            </svg>
+                        </div>
+                        <h3>Desayunos Criollos</h3>
+                        <span class="card-pill">Chicharrón a la Leña</span>
+                        <p>Nuestra gran especialidad dominical: chicharrones crocantes y panceta a la leña con camote frito y sarza criolla.</p>
+                    </article>
+
+                    <!-- Tarjeta 2: Jugos Naturales -->
+                    <article class="feature-card">
+                        <div class="icon-circle">
+                            <svg viewBox="0 0 24 24" class="svg-icon" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+                                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+                                <line x1="6" y1="2" x2="6" y2="4"/>
+                                <line x1="10" y1="2" x2="10" y2="4"/>
+                                <line x1="14" y1="2" x2="14" y2="4"/>
+                            </svg>
+                        </div>
+                        <h3>Jugos Naturales</h3>
+                        <span class="card-pill">Fruta Fresca al Instante</span>
+                        <p>Variedad de jugos simples, especiales y con leche preparados al momento con fruta fresca seleccionada del valle.</p>
+                    </article>
+
+                    <!-- Tarjeta 3: Sazón Artesanal -->
+                    <article class="feature-card">
+                        <div class="icon-circle">
+                            <svg viewBox="0 0 24 24" class="svg-icon" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
+                            </svg>
+                        </div>
+                        <h3>Sazón Artesanal</h3>
+                        <span class="card-pill">Cocción Tradicional</span>
+                        <p>Recetas tradicionales con el inconfundible toque ahumado a la leña en nuestros panes calientes, carnes y empanadas.</p>
+                    </article>
+
+                    <!-- Tarjeta 4: Tradición Chaclacayina -->
+                    <article class="feature-card">
+                        <div class="icon-circle">
+                            <svg viewBox="0 0 24 24" class="svg-icon" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                            </svg>
+                        </div>
+                        <h3>Tradición Chaclacayina</h3>
+                        <span class="card-pill">Más de 40 Años</span>
+                        <p>El punto de encuentro emblemático de familias y visitantes frente a la Plaza de Armas de Chaclacayo, Valle del Sol.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 2: Banner Interactivo con Efecto Hover ('La tradición nos inspira') -->
+        <section class="showcase-banner" id="tradicion">
+            <div class="showcase-box">
+                <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1600&q=80" 
+                     alt="Mesa artesanal con panes dorados y postres recién horneados" 
+                     class="showcase-bg-img">
+                <div class="showcase-overlay">
+                    <div class="showcase-text-wrap">
+                        <span class="showcase-tag">Hecho con el Corazón</span>
+                        <h2 class="showcase-title">La tradición nos inspira</h2>
+                        <p class="showcase-paragraph">
+                            Pasa el cursor sobre la imagen para revelar la textura, el aroma y el dorado perfecto de nuestras recetas emblemáticas horneadas en Chaclacayo.
+                        </p>
+                        <a href="#contacto" class="btn btn-showcase">Conócenos</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Bloque 3: Cierre Directo / Footer Corporativo Multicolumna -->
+    <footer class="corporate-footer" id="contacto">
+        <div class="footer-inner-grid">
+            
+            <!-- Columna 1: Identidad Corporativa -->
+            <div class="footer-column brand-column">
+                <div class="footer-logo-header">
+                    <img src="images/logo.png" alt="Logo Danilo" class="footer-logo">
+                    <div>
+                        <span class="f-brand-title">DANILO</span>
+                        <span class="f-brand-sub">Panadería &amp; Cafetería</span>
+                    </div>
+                </div>
+                <p class="footer-intro-p">
+                    El auténtico sabor tradicional de Chaclacayo. Los mejores chicharrones a la leña, jugos naturales de fruta fresca, postres caseros y café de altura frente a la Plaza de Armas.
+                </p>
+                <div class="footer-badges-list">
+                    <span>Chaclacayo</span>
+                    <span>Chicharrones a la Leña</span>
+                    <span>Jugos Naturales</span>
+                    <span>Café de Altura</span>
+                </div>
+            </div>
+
+            <!-- Columna 2: Explorar (Enlaces Rápidos) -->
+            <div class="footer-column">
+                <h3 class="footer-heading">Explorar</h3>
+                <ul class="footer-nav-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#somos-danilo">Somos Danilo</a></li>
+                    <li><a href="carta.html">Nuestra Carta</a></li>
+                    <li><a href="#tradicion">Nuestra Tradición</a></li>
+                    <li><a href="#contacto">Contacto y Visítanos</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 3: Información de Hornadas -->
+            <div class="footer-column">
+                <h3 class="footer-heading">Información de Hornadas</h3>
+                <ul class="footer-info-details">
+                    <li><strong>Primera Hornada:</strong> 06:30 a. m.</li>
+                    <li><strong>Segunda Hornada:</strong> 05:00 p. m.</li>
+                    <li><strong>Atención Corrida:</strong> Lunes a Domingo de 06:00 a. m. a 09:30 p. m.</li>
+                </ul>
+            </div>
+
+            <!-- Columna 4: Contacto y Newsletter -->
+            <div class="footer-column">
+                <h3 class="footer-heading">Contacto y Visítanos</h3>
+                <address class="footer-address">
+                    <p>📍 Av. Nicolás Ayllón (Frente a la Plaza de Armas), Chaclacayo, Lima - Perú</p>
+                    <p>📞 Central: (01) 358-2940</p>
+                    <p>📱 WhatsApp Delivery: +51 953 877 620</p>
+                    <p>✉️ contacto@panaderiadanilo.pe</p>
+                </address>
+
+                <div class="newsletter-widget">
+                    <label for="newsletter-email" class="nl-widget-label">Suscríbete a novedades y promociones:</label>
+                    <div class="nl-widget-inputs">
+                        <input type="email" id="newsletter-email" placeholder="Tu correo electrónico..." required>
+                        <button type="button" class="btn-nl-submit">Unirme</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Barra Inferior Corporativa -->
+        <div class="footer-copyright-bar">
+            <div class="copyright-container">
+                <p class="copyright-clean">Panadería y Cafetería Danilo &bull; Chaclacayo, Lima - Perú</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
