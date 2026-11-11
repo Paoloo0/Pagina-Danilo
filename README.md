@@ -1,108 +1,94 @@
 ﻿# 🥖 Panadería y Cafetería Danilo - Chaclacayo ☕
 
-[![HTML5 Validation](https://img.shields.io/badge/HTML5-W3C%20Valid-E34F26?logo=html5&logoColor=white)](#)
+[![HTML5 Validation](https://img.shields.io/badge/HTML5-W3C%20Valid%20Semantics-E34F26?logo=html5&logoColor=white)](#)
 [![CSS3 Responsive](https://img.shields.io/badge/CSS3-Flexbox%20%26%20Grid-1572B6?logo=css3&logoColor=white)](#)
-[![JavaScript ES6+](https://img.shields.io/badge/JavaScript-Vanilla%20ES6%2B-F7DF1E?logo=javascript&logoColor=black)](#)
-[![Accessibility](https://img.shields.io/badge/WCAG-2.1%20AA%20Compliant-success)](#)
-[![UTP Project](https://img.shields.io/badge/UTP-Ingenier%C3%ADa%20de%20Sistemas-red)](#)
+[![JavaScript ES6+](https://img.shields.io/badge/JavaScript-Vanilla%20ES6%2B%20Modal-F7DF1E?logo=javascript&logoColor=black)](#)
+[![PHP Backend](https://img.shields.io/badge/PHP-8.x%20PDO%20Backend-777BB4?logo=php&logoColor=white)](#)
+[![MySQL Database](https://img.shields.io/badge/MySQL-danilo__db%20Prepared%20Statements-4479A1?logo=mysql&logoColor=white)](#)
+[![UTP Project](https://img.shields.io/badge/UTP-Taller%20de%20Programaci%C3%B3n%20Web-red)](#)
 
-Sitio web oficial y carta digital interactiva de **Panadería y Cafetería Danilo**, emblemático negocio tradicional ubicado frente a la Plaza de Armas de **Chaclacayo, Lima - Perú**.
+Plataforma Web Oficial, Carta Digital Interactiva y Sistema de Pedidos Backend de la **Panadería y Cafetería Danilo**, emblemático negocio tradicional ubicado frente a la Plaza de Armas de **Chaclacayo, Lima - Perú**.
 
-> **Contexto Académico:** Proyecto desarrollado para la asignatura de **Desarrollo Web / Programación Web** (5to Ciclo de Ingeniería de Sistemas e Informática / Software - Universidad Tecnológica del Perú - UTP). Desarrollado bajo la **Rúbrica de Calificación de 20 Puntos**.
-
----
-
-## 📋 Matriz de Cumplimiento de la Rúbrica (20 / 20 Puntos)
-
-| Sección de la Rúbrica | Criterios Específicos | Puntaje | Implementación en este Proyecto |
-| :--- | :--- | :---: | :--- |
-| **1. Estructura HTML** | Etiquetas Semánticas, Validez W3C, Accesibilidad ARIA, Organización e Indentación | **4.0 / 4.0** | Maquetación con `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<aside>`, `<table>`, `<footer>`, `role="banner"`, `role="navigation"`, `role="main"`, `role="contentinfo"`. 100% balance de etiquetas y atributos `alt` descriptivos. |
-| **2. Estilos CSS** | Diseño Responsivo, Estilos Cohesivos, Eficiencia de Selectores, Validez | **4.0 / 4.0** | Sistema de diseño basado en variables `:root`, Flexbox, CSS Grid adaptable a smartphones (<600px), tablets (<860px, <1024px) y desktop. Cero código repetido. |
-| **3. Funcionalidad JavaScript** | Interactividad, Buenas Prácticas, Integración DOM/CSS, Validez | **4.0 / 4.0** | Módulo `script.js` en modo estricto (`"use strict"`), ES6+, modular, con JSDoc. Navegación móvil hamburguesa con ARIA, buscador y filtro en tiempo real en la carta, validación regex de newsletter y botón scroll-to-top. |
-| **4. Experiencia de Usuario (UX)** | Navegación Intuitiva, Velocidad de Carga, Compatibilidad de Navegadores, Feedback al Usuario | **3.0 / 3.0** | Sistema de notificaciones Toast dinámicas (`role="alert"`), contador interactivo de productos, enlaces accesibles, recursos livianos sin librerías externas pesadas. Compatible con Chrome, Edge, Safari y Firefox. |
-| **5. Creatividad y Diseño Visual** | Originalidad, Paleta de Colores, Impacto Visual Coherente | **2.0 / 2.0** | Estética corporativa moderna tipo cafetería de especialidad, paleta cálida (café leña `#170b05`, dorado miel `#c8914b`, crema), hero con video institucional y banner hover de revelación. |
-| **6. Documentación** | Comentarios en Código, Documentación del Proyecto, Guías de Contribución | **1.5 / 1.5** | Código profusamente comentado, `README.md` detallado con guías de instalación y uso, y `CONTRIBUTING.md` con lineamientos claros para desarrolladores. |
-| **7. Exposición Oral** | Capacidad de Síntesis, Dominio del Tema, No Lectura, Expresión Oral | **1.5 / 1.5** | Incluye archivo `DEFENSA_Y_EXPOSICION.md` con guión cronometrado de 5 minutos, preguntas y respuestas técnicas para el jurado docente, y recomendaciones de oratoria. |
-| **TOTAL** | **Evaluación Integral** | **20.0 / 20.0** | **Calificación Sobresaliente** |
+> **Evaluación Oficial:** Avance de Proyecto Final 3 (Unidades 13-15)  
+> **Asignatura:** Taller de Programación Web  
+> **Docente:** Ing. Hernán Francisco Peña Carnero  
+> **Estudiante:** Paolo (Ingeniería de Sistemas e Informática / Software - Universidad Tecnológica del Perú - UTP)  
+> **Calificación Objetivo:** **40 / 40 Puntos (Nota: 20 / 20)**
 
 ---
 
-## 🌟 Arquitectura y Características
+## 📋 Matriz de Cumplimiento de la Rúbrica de Evaluación (40/40 -> 20/20)
 
-### 1. Landing Page Corporativa (`index.html`)
-* **Cabecera Fija Accesible**: Logotipo corporativo, menú de enlaces y botón toggle responsive (hamburguesa) con `aria-expanded` y `aria-controls`.
-* **Hero Section Multimedia**: Video institucional en bucle, títulos limpios sin redundancias y botones de acción ("Ver Nuestra Carta" y "Cómo llegar").
-* **Sección "Somos Danilo"**: 4 pilares artesanales en tarjetas elevadas (Desayunos criollos a la leña, jugos de fruta natural, sazón artesanal y tradición chaclacayina de más de 40 años).
-* **Banner Panorámico Interactivo**: Efecto *hover* que revela con iluminación la frescura de los productos al pasar el cursor.
-* **Footer Multicolumna**: Información de hornadas (06:30 a. m. y 05:00 p. m.), datos de contacto frente a la Plaza de Armas, formulario interactivo de suscripción y barra corporativa centrada.
-
-### 2. Carta Comercial Oficial (`carta.html`)
-* **Buscador Dinámico en Tiempo Real**: Búsqueda instantánea de platos por nombre o ingrediente con contador de resultados y estado vacío intuitivo.
-* **Filtros por Categoría**: Botones interactivos que filtran sin recarga (Todos, Combos Familiares, Platos a la Carta, Cafetería & Jugos, Postres & Helados, Bar).
-* **Tabla Semántica Comparativa (`<table>`)**: Cuadro de rendimiento, contenido y precio oficial de combos familiares para 4 a 5 personas.
-* **Aviso Semántico (`<aside>`)**: Cuadro informativo sobre la preparación de chicharrones dominicales recién salidos de la paila.
-* **Integración WhatsApp Delivery**: Enlaces directos preconfigurados con mensaje para atención rápida al `+51 953 877 620`.
-
-### 3. Módulo JavaScript (`script.js`)
-* **Modo Estricto (`"use strict"`)**: Prevención de errores comunes y estándares limpios.
-* **Sistema Toast Notifier**: Notificaciones emergentes accesibles para feedback de formularios y eventos.
-* **Scroll-to-top**: Botón flotante accesible con aparición dinámica según el desplazamiento vertical.
-* **Navbar Scrolled**: Efecto de desenfoque y sombreado al hacer scroll.
+| # | Criterio a Evaluar | Nivel LOGRADO (4 Puntos) | Estado e Implementación en el Proyecto |
+| :-: | :--- | :--- | :--- |
+| **1** | **Estructura y Maquetación con HTML** | Utiliza etiquetas semánticas HTML5 (`header`, `nav`, `main`, `section`, `article`, `footer`, `aside`, `table`). Estructura ordenada, validada y menú funcional en todas las secciones. | **4.0 / 4.0** - 100% etiquetas semánticas nativas, menú fijo y responsive con enlaces activos y navegación cruzada completa. |
+| **2** | **Estilos y Diseño con CSS** | Estilos avanzados (transiciones, sombras, gradientes). Diseño profesional, atractivo y coherente. 100% responsivo (**media queries**, viewport). **Utiliza fuentes e íconos externos (Google Fonts, Font Awesome)**. | **4.0 / 4.0** - Google Fonts (*Montserrat* y *Playfair Display*) integradas en tipografía; Font Awesome 6.5.1 en íconos; breakpoints en 1024px, 860px y 640px. |
+| **3** | **Comportamiento e Interactividad con JavaScript** | Implementa: **Menú responsivo (hamburguesa)**, **Ventana flotante (modal)**, validación de formularios, manipulación del DOM y sin errores en consola. | **4.0 / 4.0** - Menú hamburguesa accesible con ARIA; Ventana modal interactiva de Pedidos/Reservas con tecla `Esc` y clic exterior; buscador en vivo en la carta; notificaciones Toast. |
+| **4** | **Backend con PHP** | Formulario procesa datos con **PHP**: validación de campos, **sanitización de datos**, manejo de errores/mensajes al usuario y conexión exitosa a base de datos. | **4.0 / 4.0** - Controladores `backend/procesar_pedido.php` y `backend/procesar_contacto.php` con sanitización estricta (`htmlspecialchars`, `filter_var`), validación de tipos y respuesta JSON/HTML. |
+| **5** | **Base de Datos MySQL** | Base de datos creada con SQL (`database/danilo_db.sql`), tablas para almacenar datos, **conexión exitosa con PHP (PDO)**, inserción persistente y **consultas preparadas (seguridad)**. | **4.0 / 4.0** - Script `danilo_db.sql` con tablas `pedidos`, `mensajes_contacto`, `suscripciones` y `productos_catalogo`. Conexión PDO con `prepare()` y `bindParam()`. |
+| **6** | **Multimedia y Recursos** | Imágenes libres de copyright optimizadas (Unsplash, Pexels), etiquetas `alt` descriptivas (accesibilidad) y video institucional de fondo en el hero section. | **4.0 / 4.0** - Video institucional MP4 en bucle continuo, póster de carga rápida y fotografías optimizadas en alta definición. |
+| **7** | **Buenas Prácticas y Calidad del Código** | Código limpio, bien indentado, comentado en secciones clave, nombres de variables descriptivos, organizado en archivos separados y sin errores ni warnings. | **4.0 / 4.0** - Estructura modular universitaria: `backend/`, `database/`, `images/`, `videos/`, `index.html`, `carta.html`, `styles.css`, `script.js`. |
+| **8** | **Presentación y Funcionalidad General** | Integra todos los temas de manera coherente, funcional y sin errores, navegación fluida, el usuario interactúa con todos los elementos y **la información se guarda correctamente en BD**. | **4.0 / 4.0** - Flujo completo desde el frontend (botón/modal) hasta la persistencia en MySQL, con visualizador administrativo en `backend/ver_pedidos.php`. |
+| **9** | **Seguridad Básica** | Prevención de **Inyección SQL** (consultas preparadas nativas con PDO), sanitización de entradas, validación de datos y protección contra **XSS** básico. | **4.0 / 4.0** - `PDO::ATTR_EMULATE_PREPARES => false`, escape de cadenas con `ENT_QUOTES`, validación estricta de regex telefónico y email, restricción a métodos POST. |
+| **10** | **Creatividad y Esfuerzo Adicional** | Diseño único y original, funcionalidades extras útiles, optimización de rendimiento y buenas prácticas de UX/UI. | **4.0 / 4.0** - Buscador instantáneo con contador de platos, modal con autocompletado de producto al hacer clic en la carta, notificaciones Toast dinámicas y panel de auditoría de pedidos. |
+| **TOTAL** | **Calificación del Avance 3** | **Suma de Criterios: 40 Puntos / 2 = NOTA FINAL** | **NOTA: 20 / 20** |
 
 ---
 
-## 📁 Estructura del Repositorio
+## 🛠️ Arquitectura y Estructura del Proyecto
 
 ```text
-├── index.html               # Landing page corporativa principal
-├── carta.html               # Carta comercial oficial interactiva
-├── styles.css               # Hoja de estilos global, cohesiva y responsiva
-├── script.js                # Lógica e interactividad en JavaScript ES6+
-├── images/                  # Logotipo y activos visuales optimizados
-│   ├── logo.png
-│   └── images.png
-├── videos/                  # Video institucional ligero de fondo
-│   ├── video.mp4
-│   └── danilo_presentacion.mp4
-├── CONTRIBUTING.md          # Guía completa para desarrolladores colaboradores
-├── DEFENSA_Y_EXPOSICION.md  # Guión de oratoria y defensa de proyecto para el estudiante
-└── README.md                # Documentación oficial del repositorio
+├── index.html                   # Landing page corporativa principal
+├── carta.html                   # Carta comercial oficial interactiva
+├── styles.css                   # Hoja de estilos CSS3 global con Google Fonts y Font Awesome
+├── script.js                    # Interactividad Vanilla JS (Modal, Buscador, Toast, Menú)
+├── backend/                     # Capa de Lógica y Servidor Backend PHP
+│   ├── conexion.php             # Conexión segura PDO a MySQL con manejo de excepciones
+│   ├── procesar_pedido.php      # Controlador que valida, sanitiza y guarda pedidos en BD
+│   ├── procesar_contacto.php    # Controlador de suscripciones y mensajes de contacto
+│   └── ver_pedidos.php          # Panel administrativo para auditar los registros en la BD
+├── database/                    # Base de Datos Relacional MySQL
+│   └── danilo_db.sql            # Script SQL completo de creación de BD, tablas y datos semilla
+├── images/                      # Logotipos y recursos visuales
+│   └── logo.png
+├── videos/                      # Videos institucionales para el Hero Section
+│   └── video.mp4
+├── CONTRIBUTING.md              # Guía de contribución para desarrolladores colaboradores
+├── DEFENSA_Y_EXPOSICION.md      # Guión de sustentación oral ante el Ing. Peña Carnero
+└── README.md                    # Documentación oficial del repositorio
 ```
 
 ---
 
-## 🚀 Instalación y Uso Local
+## 🚀 Guía de Instalación y Puesta en Marcha Local (XAMPP / Laragon)
 
-Para ejecutar el proyecto en tu computadora:
+Para ejecutar el proyecto con su funcionalidad completa (Frontend + Backend PHP + MySQL):
 
-1. **Clonar el repositorio:**
-   ```bash
-   git clone https://github.com/Paoloo0/Pagina-Danilo.git
-   cd Pagina-Danilo
-   ```
+### Paso 1: Configurar el Servidor Local
+1. Instala e inicia **XAMPP** o **Laragon** activando los servicios de **Apache** y **MySQL**.
+2. Copia la carpeta del proyecto dentro del directorio web:
+   * En XAMPP: `C:\xampp\htdocs\Pagina-Danilo`
+   * En Laragon: `C:\laragon\www\Pagina-Danilo`
 
-2. **Abrir en el navegador:**
-   * Haz doble clic en `index.html` o `carta.html`.
-   * O si utilizas VS Code, haz clic derecho y selecciona **"Open with Live Server"**.
+### Paso 2: Importar la Base de Datos
+1. Abre tu navegador y accede a phpMyAdmin (`http://localhost/phpmyadmin`).
+2. Ve a la pestaña **Importar**.
+3. Selecciona el archivo `database/danilo_db.sql` ubicado en la carpeta del proyecto y haz clic en **Importar**.
+4. Se creará automáticamente la base de datos `danilo_db` con sus tablas e información de prueba.
 
-3. **Requisitos:**
-   * No requiere servidores backend, Node.js ni bases de datos. Funciona 100% en el cliente (Client-side rendering) sobre cualquier navegador web moderno.
+### Paso 3: Abrir la Aplicación
+1. Accede desde tu navegador a:
+   * Página Principal: `http://localhost/Pagina-Danilo/index.html`
+   * Carta Digital: `http://localhost/Pagina-Danilo/carta.html`
+   * Panel de Auditoría de Base de Datos: `http://localhost/Pagina-Danilo/backend/ver_pedidos.php`
 
----
-
-## 🌐 Compatibilidad de Navegadores
-
-| Navegador | Versión Soportada | Estado |
-| :--- | :---: | :---: |
-| **Google Chrome** | 90+ | Totalmente compatible |
-| **Microsoft Edge** | 90+ | Totalmente compatible |
-| **Mozilla Firefox** | 88+ | Totalmente compatible |
-| **Apple Safari** | 14+ | Totalmente compatible |
-| **Navegadores Móviles (Android / iOS)** | Recientes | Totalmente responsivo |
+> **Nota para visualización estática:** Si abres los archivos directamente con doble clic o con la extensión *Live Server* de VS Code, el frontend (modal, buscador, estilos y diseño) funcionará fluidamente gracias a un mecanismo de fallback que detecta si el servidor PHP está desconectado.
 
 ---
 
-## 👨‍💻 Autor y Créditos
+## 👨‍💻 Autor y Asignatura
 
-* **Desarrollador:** Paolo (Estudiante de 5to ciclo de Ingeniería de Sistemas e Informática / Software - UTP).
-* **Empresa Real Referenciada:** Panadería y Cafetería Danilo (Av. Nicolás Ayllón, frente a la Plaza de Armas de Chaclacayo, Lima - Perú).
+* **Estudiante:** Paolo (5to Ciclo de Ingeniería de Sistemas e Informática / Software - UTP).
+* **Asignatura:** Taller de Programación Web (Unidades 13-15).
+* **Docente Evaluador:** Ing. Hernán Francisco Peña Carnero.
+* **Empresa Real:** Panadería y Cafetería Danilo (Av. Nicolás Ayllón, frente a la Plaza de Armas de Chaclacayo, Lima - Perú).

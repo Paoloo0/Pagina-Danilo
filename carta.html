@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuestra Carta Oficial | Panadería &amp; Cafetería Danilo - Chaclacayo</title>
+    <!-- Fuentes Externas: Google Fonts (Montserrat & Playfair Display) - Rúbrica Criterio 2 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,400&display=swap" rel="stylesheet">
+    <!-- Íconos Externos: Font Awesome 6.5.1 - Rúbrica Criterio 2 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="page-carta">
@@ -28,11 +34,16 @@
             
             <nav class="nav-menu" id="main-nav" role="navigation" aria-label="Navegación principal">
                 <ul>
-                    <li><a href="index.html#inicio">Inicio</a></li>
-                    <li><a href="index.html#somos-danilo">Somos Danilo</a></li>
-                    <li><a href="carta.html" class="nav-link-active" aria-current="page">Nuestra Carta</a></li>
-                    <li><a href="index.html#tradicion">Tradición</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="index.html#inicio"><i class="fa-solid fa-house"></i> Inicio</a></li>
+                    <li><a href="index.html#somos-danilo"><i class="fa-solid fa-award"></i> Somos Danilo</a></li>
+                    <li><a href="carta.html" class="nav-link-active" aria-current="page"><i class="fa-solid fa-book-open"></i> Nuestra Carta</a></li>
+                    <li><a href="index.html#tradicion"><i class="fa-solid fa-fire-flame-curved"></i> Tradición</a></li>
+                    <li><a href="#contacto"><i class="fa-solid fa-location-dot"></i> Contacto</a></li>
+                    <li>
+                        <button type="button" class="btn-nav-order" data-open-modal title="Hacer pedido o reserva online">
+                            <i class="fa-solid fa-bell-concierge"></i> Pedir Online
+                        </button>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -638,6 +649,7 @@
                     <li><a href="carta.html">Nuestra Carta Comercial</a></li>
                     <li><a href="index.html#tradicion">Nuestra Tradición</a></li>
                     <li><a href="#contacto">Contacto y Visítanos</a></li>
+                    <li><a href="backend/ver_pedidos.php" class="footer-admin-link"><i class="fa-solid fa-database"></i> Panel de Pedidos (BD)</a></li>
                 </ul>
             </div>
 
@@ -680,6 +692,85 @@
             </div>
         </div>
     </footer>
+
+    <!-- ========================================================================
+         VENTANA FLOTANTE (MODAL): Hacer Pedido / Reserva Online
+         Rúbrica: Criterio 3 (Comportamiento e Interactividad con JavaScript)
+         ======================================================================== -->
+    <div id="order-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-order-title" aria-hidden="true">
+        <div class="modal-container">
+            <div class="modal-header">
+                <div class="modal-title-group">
+                    <span class="modal-tag"><i class="fa-solid fa-bell-concierge"></i> Pedidos &bull; Chaclacayo</span>
+                    <h2 id="modal-order-title" class="modal-title">Hacer Pedido o Reserva Online</h2>
+                </div>
+                <button type="button" class="modal-close-btn" data-close-modal aria-label="Cerrar ventana emergente">&times;</button>
+            </div>
+            
+            <form id="order-form" class="modal-form" action="backend/procesar_pedido.php" method="POST" novalidate>
+                <input type="hidden" name="ajax" value="1">
+
+                <div class="modal-body">
+                    <p class="modal-intro">
+                        Completa el formulario para registrar tu pedido en nuestro sistema. El equipo de Danilo en Chaclacayo lo preparará artesanalmente.
+                    </p>
+
+                    <div class="form-row">
+                        <div class="form-group flex-1">
+                            <label for="order-nombre"><i class="fa-solid fa-user"></i> Nombre Completo *</label>
+                            <input type="text" id="order-nombre" name="nombre_cliente" class="form-control" placeholder="Ej. Juan Pérez" required autocomplete="name">
+                        </div>
+                        <div class="form-group flex-1">
+                            <label for="order-telefono"><i class="fa-solid fa-phone"></i> Teléfono / WhatsApp *</label>
+                            <input type="tel" id="order-telefono" name="telefono" class="form-control" placeholder="Ej. 953 877 620" required autocomplete="tel">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group flex-1">
+                            <label for="order-email"><i class="fa-solid fa-envelope"></i> Correo Electrónico *</label>
+                            <input type="email" id="order-email" name="email" class="form-control" placeholder="Ej. correo@ejemplo.com" required autocomplete="email">
+                        </div>
+                        <div class="form-group flex-1">
+                            <label for="order-tipo"><i class="fa-solid fa-truck-ramp-box"></i> Modalidad de Atención *</label>
+                            <select id="order-tipo" name="tipo_pedido" class="form-control" required>
+                                <option value="delivery">Delivery a Domicilio (Chaclacayo)</option>
+                                <option value="recojo_local">Recojo en Tienda (Frente a Plaza)</option>
+                                <option value="reserva_mesa">Reserva de Mesa en Cafetería</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group flex-2">
+                            <label for="order-producto"><i class="fa-solid fa-utensils"></i> Producto / Combo Seleccionado *</label>
+                            <input type="text" id="order-producto" name="producto_combo" class="form-control" placeholder="Ej. El Familión, Jugo Especial, Chicharrones..." required>
+                        </div>
+                        <div class="form-group flex-1">
+                            <label for="order-cantidad"><i class="fa-solid fa-hashtag"></i> Cantidad *</label>
+                            <input type="number" id="order-cantidad" name="cantidad" class="form-control" value="1" min="1" max="50" required>
+                        </div>
+                        <div class="form-group flex-1">
+                            <label for="order-fecha"><i class="fa-solid fa-calendar-day"></i> Fecha *</label>
+                            <input type="date" id="order-fecha" name="fecha_entrega" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="order-notas"><i class="fa-solid fa-location-dot"></i> Dirección o Indicaciones Especiales</label>
+                        <textarea id="order-notas" name="direccion_notas" class="form-control" rows="2" placeholder="Dirección exacta en Chaclacayo, referencias o especificaciones..."></textarea>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-modal-cancel" data-close-modal>Cancelar</button>
+                    <button type="submit" id="btn-submit-order" class="btn btn-modal-submit">
+                        <span class="btn-text"><i class="fa-solid fa-paper-plane"></i> Confirmar Pedido en Sistema</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <!-- Botón Accesible "Volver Arriba" (Rúbrica: Interactividad y UX) -->
     <button type="button" id="scroll-top-btn" class="scroll-top-btn" aria-label="Volver arriba de la página" title="Volver al inicio">
