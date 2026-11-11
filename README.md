@@ -1,4 +1,4 @@
-﻿# 🥖 Panadería y Cafetería Danilo - Chaclacayo ☕
+﻿# Panadería y Cafetería Danilo - Chaclacayo
 
 [![HTML5 Validation](https://img.shields.io/badge/HTML5-W3C%20Valid%20Semantics-E34F26?logo=html5&logoColor=white)](#)
 [![CSS3 Responsive](https://img.shields.io/badge/CSS3-Flexbox%20%26%20Grid-1572B6?logo=css3&logoColor=white)](#)
@@ -61,7 +61,6 @@ Para ejecutar el proyecto con su funcionalidad completa (Frontend + Backend PHP 
 
 ## 👨‍💻 Autor y Asignatura
 
-* **Estudiante:** Paolo (5to Ciclo de Ingeniería de Sistemas e Informática / Software - UTP).
-* **Asignatura:** Taller de Programación Web (Unidades 13-15).
-* **Docente Evaluador:** Ing. Hernán Francisco Peña Carnero.
+* **Estudiante:** Paolo (6to Ciclo de Ingeniería de Sistemas e Informática / Software - UTP).
+* **Asignatura:** Taller de Programación Web.
 * **Empresa Real:** Panadería y Cafetería Danilo (Av. Nicolás Ayllón, frente a la Plaza de Armas de Chaclacayo, Lima - Perú).
