@@ -1,18 +1,7 @@
-﻿/**
+/**
  * ==============================================================================
  * Panadería y Cafetería Danilo - Chaclacayo, Lima - Perú
  * Script Principal de Interactividad y Backend (script.js)
- * 
- * Asignatura: Taller de Programación Web (Unidades 13-15)
- * Docente: Ing. Hernán Francisco Peña Carnero
- * Nivel: 5to Ciclo - Ingeniería de Sistemas e Informática / Software (UTP)
- * ==============================================================================
- * 
- * Rúbrica de Evaluación:
- *  - Criterio 3: Comportamiento e Interactividad con JavaScript (Modal, Menú, DOM)
- *  - Criterio 4: Backend con PHP (Envío dinámico y validación)
- *  - Criterio 8: Presentación y Funcionalidad General
- *  - Criterio 9: Seguridad Básica (Sanitización y control de eventos)
  * ==============================================================================
  */
 
@@ -110,7 +99,6 @@ function initNavbarScroll() {
 /**
  * ------------------------------------------------------------------------------
  * 3. VENTANA FLOTANTE (MODAL): HACER PEDIDO / RESERVA ONLINE
- * Cumple explícitamente el Criterio 3 de la Rúbrica del Ing. Peña Carnero:
  * - Apertura accesible desde botones nav/carta
  * - Cierre con botón X, tecla Escape o clic en backdrop
  * - Envío asíncrono con Fetch API a backend/procesar_pedido.php

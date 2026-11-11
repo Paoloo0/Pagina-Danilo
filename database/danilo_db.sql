@@ -1,10 +1,6 @@
-﻿-- ==============================================================================
+-- ==============================================================================
 -- Panadería y Cafetería Danilo - Chaclacayo, Lima - Perú
 -- Script de Base de Datos MySQL (danilo_db.sql)
---
--- Asignatura: Taller de Programación Web (Unidades 13-15)
--- Docente: Ing. Hernán Francisco Peña Carnero
--- Estudiante: Paolo (Ingeniería de Sistemas e Informática / Software - UTP)
 -- ==============================================================================
 
 -- 1. Creación de la Base de Datos con codificación UTF-8 Multilingüe

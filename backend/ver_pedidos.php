@@ -1,13 +1,8 @@
-﻿<?php
+<?php
 /**
  * ==============================================================================
  * Panadería y Cafetería Danilo - Chaclacayo, Lima - Perú
  * Panel de Consulta y Verificación de Pedidos Registrados (ver_pedidos.php)
- *
- * Asignatura: Taller de Programación Web (Unidades 13-15)
- * Docente: Ing. Hernán Francisco Peña Carnero
- *
- * Rúbrica: Criterio 5 (BD MySQL), Criterio 8 (Funcionalidad General), Criterio 9 (Seguridad)
  * ==============================================================================
  */
 
@@ -118,13 +113,17 @@ if ($pdo) {
             </div>
         </header>
 
-        <?php if (!$error_conexion): ?>
+        <?php if (!$error_conexion && $db_driver_active === 'mysql'): ?>
             <div class="db-status-bar db-online">
                 <i class="fa-solid fa-circle-check"></i> Conexión activa a MySQL (Base de datos <code>danilo_db</code> vía PDO). Mostrando <?php echo count($pedidos); ?> registros.
             </div>
+        <?php elseif (!$error_conexion && $db_driver_active === 'sqlite'): ?>
+            <div class="db-status-bar db-online" style="background: #eaf2f8; color: #2980b9; border: 1px solid #aed6f1;">
+                <i class="fa-solid fa-database"></i> Conexión activa a Base de Datos local (PDO SQLite <code>database/danilo.sqlite</code>). Mostrando <?php echo count($pedidos); ?> registros persistentes.
+            </div>
         <?php else: ?>
             <div class="db-status-bar db-offline">
-                <i class="fa-solid fa-triangle-exclamation"></i> Servidor MySQL local no detectado o desconectado. Recuerda importar <code>database/danilo_db.sql</code> en phpMyAdmin (XAMPP / Laragon).
+                <i class="fa-solid fa-triangle-exclamation"></i> Servidor de Base de Datos no detectado. Recuerda importar <code>database/danilo_db.sql</code> en phpMyAdmin si usas XAMPP.
             </div>
         <?php endif; ?>
 

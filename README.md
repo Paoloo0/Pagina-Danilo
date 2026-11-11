@@ -1,12 +1,31 @@
-﻿# Panadería y Cafetería Danilo - Chaclacayo
+# 🥖 Panadería y Cafetería Danilo - Chaclacayo ☕
 
 [![HTML5 Validation](https://img.shields.io/badge/HTML5-W3C%20Valid%20Semantics-E34F26?logo=html5&logoColor=white)](#)
 [![CSS3 Responsive](https://img.shields.io/badge/CSS3-Flexbox%20%26%20Grid-1572B6?logo=css3&logoColor=white)](#)
 [![JavaScript ES6+](https://img.shields.io/badge/JavaScript-Vanilla%20ES6%2B%20Modal-F7DF1E?logo=javascript&logoColor=black)](#)
 [![PHP Backend](https://img.shields.io/badge/PHP-8.x%20PDO%20Backend-777BB4?logo=php&logoColor=white)](#)
 [![MySQL Database](https://img.shields.io/badge/MySQL-danilo__db%20Prepared%20Statements-4479A1?logo=mysql&logoColor=white)](#)
-[![UTP Project](https://img.shields.io/badge/UTP-Taller%20de%20Programaci%C3%B3n%20Web-red)](#)
 
+Plataforma Web Oficial, Carta Digital Interactiva y Sistema de Pedidos Backend de la **Panadería y Cafetería Danilo**, emblemático negocio tradicional ubicado frente a la Plaza de Armas de **Chaclacayo, Lima - Perú**.
+
+---
+
+## 📋 Especificaciones Técnicas y Arquitectura del Sistema
+
+| # | Módulo / Componente | Estándar Implementado | Descripción y Funcionalidad |
+| :-: | :--- | :--- | :--- |
+| **1** | **Estructura y Maquetación HTML5** | Estándar semántico W3C (`header`, `nav`, `main`, `section`, `article`, `footer`, `aside`, `table`). | 100% etiquetas semánticas nativas, menú fijo y responsive con enlaces activos y navegación cruzada completa. |
+| **2** | **Estilos y Diseño con CSS3** | Tipografías e iconografía externa (**Google Fonts**, **Font Awesome 6**), Flexbox y CSS Grid. | Google Fonts (*Montserrat* y *Playfair Display*); Font Awesome 6.5.1 en íconos; breakpoints responsive en 1024px, 860px y 640px. |
+| **3** | **Interactividad con JavaScript ES6+** | **Menú responsivo (hamburguesa)**, **Ventana flotante (modal)**, validación DOM y notificaciones Toast. | Menú accesible con ARIA; Ventana modal interactiva de Pedidos/Reservas con tecla `Esc` y backdrop; buscador en vivo en la carta. |
+| **4** | **Backend con PHP 8.x** | Procesamiento asíncrono y tradicional con validación y sanitización estricta. | Controladores `backend/procesar_pedido.php` y `backend/procesar_contacto.php` con sanitización estricta (`htmlspecialchars`, `filter_var`) y respuesta JSON/HTML. |
+| **5** | **Base de Datos Relacional** | Base de datos relacional (`danilo_db.sql`), sentencias preparadas PDO y fallback SQLite. | Script `danilo_db.sql` con tablas `pedidos`, `mensajes_contacto`, `suscripciones` y `productos_catalogo`. Conexión PDO con `prepare()` y `bindParam()`. |
+| **6** | **Multimedia y Recursos** | Imágenes libres de copyright optimizadas y video institucional continuo. | Video de fondo MP4 en bucle continuo, póster de carga rápida y fotografías optimizadas en alta definición. |
+| **7** | **Buenas Prácticas y Calidad** | Código limpio, modular, bien indentado y documentado. | Estructura modular: `backend/`, `database/`, `images/`, `videos/`, `index.html`, `carta.html`, `styles.css`, `script.js`. |
+| **8** | **Presentación y Funcionalidad** | Experiencia de usuario completa e integración cliente-servidor fluida. | Flujo completo desde el frontend (botón/modal) hasta la persistencia en base de datos, con panel administrativo en `backend/ver_pedidos.php`. |
+| **9** | **Seguridad del Sistema** | Protección contra **Inyección SQL** y ataques **XSS**. | `PDO::ATTR_EMULATE_PREPARES => false`, escape de cadenas con `ENT_QUOTES`, validación estricta de regex telefónico y email, restricción a métodos POST. |
+| **10** | **Experiencia de Usuario (UX/UI)** | Búsqueda en tiempo real, modal interactivo y panel administrativo. | Buscador instantáneo con contador de platos, modal con autocompletado de producto, notificaciones Toast dinámicas y panel de auditoría. |
+
+---
 
 ## 🛠️ Arquitectura y Estructura del Proyecto
 
@@ -27,7 +46,7 @@
 ├── videos/                      # Videos institucionales para el Hero Section
 │   └── video.mp4
 ├── CONTRIBUTING.md              # Guía de contribución para desarrolladores colaboradores
-├── DEFENSA_Y_EXPOSICION.md      # Guión de sustentación oral ante el Ing. Peña Carnero
+├── DEFENSA_Y_EXPOSICION.md      # Guión de sustentación y presentación del proyecto
 └── README.md                    # Documentación oficial del repositorio
 ```
 
@@ -59,8 +78,9 @@ Para ejecutar el proyecto con su funcionalidad completa (Frontend + Backend PHP 
 
 ---
 
-## 👨‍💻 Autor y Asignatura
+## 📍 Ubicación y Contacto Comercial
 
-* **Estudiante:** Paolo (6to Ciclo de Ingeniería de Sistemas e Informática / Software - UTP).
-* **Asignatura:** Taller de Programación Web.
-* **Empresa Real:** Panadería y Cafetería Danilo (Av. Nicolás Ayllón, frente a la Plaza de Armas de Chaclacayo, Lima - Perú).
+* **Establecimiento:** Panadería y Cafetería Danilo
+* **Ubicación:** Av. Nicolás Ayllón, frente a la Plaza de Armas de Chaclacayo, Lima - Perú.
+* **Especialidades:** Chicharrones a la leña, café de altura, jugos naturales y pastelería tradicional.
+* **Atención y Pedidos:** WhatsApp (+51) 953 877 620

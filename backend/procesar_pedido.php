@@ -1,13 +1,8 @@
-﻿<?php
+<?php
 /**
  * ==============================================================================
  * Panadería y Cafetería Danilo - Chaclacayo, Lima - Perú
  * Controlador Backend: Procesamiento y Registro de Pedidos (procesar_pedido.php)
- *
- * Asignatura: Taller de Programación Web (Unidades 13-15)
- * Docente: Ing. Hernán Francisco Peña Carnero
- *
- * Rúbrica: Criterios 4, 5, 8 y 9 (Backend PHP, MySQL PDO, Seguridad y Sanitización)
  * ==============================================================================
  */
 
