@@ -222,10 +222,17 @@ function initOrderModal() {
                 submitBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Registrando en Sistema...`;
             }
 
-            const formData = new FormData(orderForm);
+            // Determinar la URL del endpoint (si se abrió como archivo local file://, apunta a localhost:8000)
+            const backendEndpoint = (window.location.protocol === "file:")
+                ? "http://localhost:8000/backend/procesar_pedido.php"
+                : "backend/procesar_pedido.php";
+
+            const viewEndpoint = (window.location.protocol === "file:")
+                ? "http://localhost:8000/backend/ver_pedidos.php"
+                : "backend/ver_pedidos.php";
 
             try {
-                const response = await fetch("backend/procesar_pedido.php", {
+                const response = await fetch(backendEndpoint, {
                     method: "POST",
                     body: formData,
                     headers: {
@@ -237,9 +244,9 @@ function initOrderModal() {
 
                 if (result.success) {
                     showToast(
-                        `${result.message} <br><a href="backend/ver_pedidos.php" target="_blank" style="display:inline-block; margin-top:8px; padding:4px 10px; background:#c8914b; color:#fff; border-radius:4px; text-decoration:none; font-weight:700; font-size:0.85rem;"><i class="fa-solid fa-table-list"></i> Ver pedido en el Panel Backend &rarr;</a>`,
+                        `${result.message} <br><a href="${viewEndpoint}" target="_blank" style="display:inline-block; margin-top:8px; padding:6px 12px; background:#c8914b; color:#fff; border-radius:4px; text-decoration:none; font-weight:700; font-size:0.85rem;"><i class="fa-solid fa-table-list"></i> Ver pedido en el Panel Backend &rarr;</a>`,
                         "success",
-                        8000
+                        10000
                     );
                     orderForm.reset();
                     setTimeout(() => {
@@ -249,13 +256,12 @@ function initOrderModal() {
                     showToast(result.message || "Error al procesar el pedido.", "error");
                 }
             } catch (error) {
-                // Modo demostración offline en caso de que no esté corriendo PHP localmente
-                console.warn("Servidor backend no disponible, simulando confirmación:", error);
-                showToast("¡Pedido registrado con éxito! (Modo de demostración offline activo). En breve te contactaremos por WhatsApp.", "success", 5000);
-                orderForm.reset();
-                setTimeout(() => {
-                    closeModal();
-                }, 1800);
+                console.error("Error al conectar con el servidor backend:", error);
+                showToast(
+                    `⚠️ No se pudo guardar en la Base de Datos. Recuerda ejecutar <strong>iniciar_servidor.bat</strong> o abrir la página desde <strong>http://localhost:8000/index.html</strong>`,
+                    "error",
+                    8000
+                );
             } finally {
                 if (submitBtn) {
                     submitBtn.disabled = false;
