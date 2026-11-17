@@ -11,6 +11,7 @@ echo   [3] Panel de BD:    http://localhost:8000/backend/ver_pedidos.php
 echo.
 echo   Presiona Ctrl + C para detener el servidor.
 echo ===================================================
+set PHP_CLI_SERVER_WORKERS=8
 start http://localhost:8000/index.html
 "C:\Users\paolo\AppData\Local\Microsoft\WinGet\Packages\PHP.PHP.8.3_Microsoft.Winget.Source_8wekyb3d8bbwe\php.exe" -S localhost:8000
 pause
