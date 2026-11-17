@@ -222,6 +222,9 @@ function initOrderModal() {
                 submitBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Registrando en Sistema...`;
             }
 
+            // Recopilar datos del formulario
+            const formData = new FormData(orderForm);
+
             // Determinar la URL del endpoint (si se abrió como archivo local file://, apunta a localhost:8000)
             const backendEndpoint = (window.location.protocol === "file:")
                 ? "http://localhost:8000/backend/procesar_pedido.php"
@@ -256,9 +259,9 @@ function initOrderModal() {
                     showToast(result.message || "Error al procesar el pedido.", "error");
                 }
             } catch (error) {
-                console.error("Error al conectar con el servidor backend:", error);
+                console.error("Error al procesar pedido:", error);
                 showToast(
-                    `⚠️ No se pudo guardar en la Base de Datos. Recuerda ejecutar <strong>iniciar_servidor.bat</strong> o abrir la página desde <strong>http://localhost:8000/index.html</strong>`,
+                    `⚠️ No se pudo conectar con el servidor backend (${error.message}). Recuerda abrir desde <strong>http://localhost:8000/index.html</strong>`,
                     "error",
                     8000
                 );
