@@ -236,11 +236,15 @@ function initOrderModal() {
                 const result = await response.json();
 
                 if (result.success) {
-                    showToast(result.message, "success", 6000);
+                    showToast(
+                        `${result.message} <br><a href="backend/ver_pedidos.php" target="_blank" style="display:inline-block; margin-top:8px; padding:4px 10px; background:#c8914b; color:#fff; border-radius:4px; text-decoration:none; font-weight:700; font-size:0.85rem;"><i class="fa-solid fa-table-list"></i> Ver pedido en el Panel Backend &rarr;</a>`,
+                        "success",
+                        8000
+                    );
                     orderForm.reset();
                     setTimeout(() => {
                         closeModal();
-                    }, 1800);
+                    }, 2200);
                 } else {
                     showToast(result.message || "Error al procesar el pedido.", "error");
                 }
