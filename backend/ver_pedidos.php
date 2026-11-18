@@ -596,11 +596,6 @@ if ($is_authenticated && $pdo) {
             <div class="login-logo"><i class="fa-solid fa-bread-slice" style="color: var(--danilo-gold);"></i> Danilo</div>
             <div class="login-sub">Panadería &bull; Cafetería &bull; Chaclacayo</div>
 
-            <div class="login-badge-info">
-                <i class="fa-solid fa-shield-halved" style="font-size: 1.2rem; color: var(--danilo-gold);"></i>
-                <span>Acceso exclusivo para administradores y cajeros del sistema.</span>
-            </div>
-
             <?php if (!empty($login_error)): ?>
                 <div class="alert-error">
                     <i class="fa-solid fa-circle-exclamation"></i>
@@ -613,12 +608,12 @@ if ($is_authenticated && $pdo) {
                 
                 <div class="form-group">
                     <label for="usuario"><i class="fa-solid fa-user"></i> Usuario</label>
-                    <input type="text" id="usuario" name="usuario" placeholder="Ej: registro" required autocomplete="username" autofocus>
+                    <input type="text" id="usuario" name="usuario" required autocomplete="username" autofocus>
                 </div>
 
                 <div class="form-group">
                     <label for="password"><i class="fa-solid fa-key"></i> Contraseña</label>
-                    <input type="password" id="password" name="password" placeholder="••••••" required autocomplete="current-password">
+                    <input type="password" id="password" name="password" required autocomplete="current-password">
                 </div>
 
                 <button type="submit" class="btn-login">

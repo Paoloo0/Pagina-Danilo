@@ -1862,7 +1862,7 @@ img {
     padding: 0.75rem 0.95rem;
     font-size: 0.95rem;
     font-family: var(--font-sans);
-    background-color: rgba(255, 255, 255, 0.06);
+    background-color: #1a0d06;
     border: 1px solid rgba(200, 145, 75, 0.4);
     border-radius: var(--radius-sm);
     color: #ffffff;
@@ -1870,15 +1870,42 @@ img {
     transition: var(--transition-fast);
 }
 
-.form-control:focus {
+select.form-control {
+    background-color: #1a0d06;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+select.form-control:focus {
     border-color: var(--color-gold);
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: #241208;
     box-shadow: 0 0 10px rgba(200, 145, 75, 0.35);
 }
 
 .form-control option {
-    background-color: var(--color-dark-espresso);
-    color: #ffffff;
+    background-color: #1a0d06;
+    color: #f7f1eb;
+    padding: 10px 12px;
+}
+
+.form-control option:disabled {
+    color: #8c7f76;
+    background-color: #25130a;
+}
+
+.form-control option.select-group-header {
+    background-color: #2b150a;
+    color: var(--color-gold-light);
+    font-weight: 700;
+    font-size: 0.88rem;
+    letter-spacing: 0.5px;
+    padding: 10px 12px 6px;
+}
+
+.form-control optgroup {
+    background-color: #2b150a;
+    color: var(--color-gold-light);
+    font-weight: 700;
 }
 
 textarea.form-control {
