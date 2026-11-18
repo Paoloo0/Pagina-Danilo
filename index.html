@@ -198,7 +198,6 @@
                     <li><a href="carta.html">Nuestra Carta</a></li>
                     <li><a href="#tradicion">Nuestra Tradición</a></li>
                     <li><a href="#contacto">Contacto y Visítanos</a></li>
-                    <li><a href="backend/ver_pedidos.php" class="footer-admin-link"><i class="fa-solid fa-database"></i> Panel de Pedidos (BD)</a></li>
                 </ul>
             </div>
 
@@ -268,8 +267,8 @@
                             <input type="text" id="order-nombre" name="nombre_cliente" class="form-control" placeholder="Ej. Juan Pérez" required autocomplete="name">
                         </div>
                         <div class="form-group flex-1">
-                            <label for="order-telefono"><i class="fa-solid fa-phone"></i> Teléfono / WhatsApp *</label>
-                            <input type="tel" id="order-telefono" name="telefono" class="form-control" placeholder="Ej. 953 877 620" required autocomplete="tel">
+                            <label for="order-telefono"><i class="fa-solid fa-phone"></i> Teléfono / WhatsApp (9 dígitos) *</label>
+                            <input type="tel" id="order-telefono" name="telefono" class="form-control" placeholder="Ej. 953877620" required maxlength="9" pattern="[0-9]{9}" inputmode="numeric" autocomplete="tel">
                         </div>
                     </div>
 
@@ -291,7 +290,42 @@
                     <div class="form-row">
                         <div class="form-group flex-2">
                             <label for="order-producto"><i class="fa-solid fa-utensils"></i> Producto / Combo Seleccionado *</label>
-                            <input type="text" id="order-producto" name="producto_combo" class="form-control" placeholder="Ej. El Familión, Jugo Especial, Chicharrones..." required>
+                            <select id="order-producto" name="producto_combo" class="form-control" required>
+                                <option value="" disabled selected>-- Elige un producto o combo disponible --</option>
+                                <optgroup label="🥖 Combos Familiares Especiales">
+                                    <option value="El Familión Tradicional de Chicharrón">El Familión Tradicional de Chicharrón</option>
+                                    <option value="Familión de Panceta a la Leña">Familión de Panceta a la Leña</option>
+                                    <option value="Medio Familión Danilo">Medio Familión Danilo</option>
+                                    <option value="Combo Desayuno Criollo (Chicharrón + Tamal + Café)">Combo Desayuno Criollo (Chicharrón + Tamal + Café)</option>
+                                </optgroup>
+                                <optgroup label="🥩 Platos y Especialidades a la Leña">
+                                    <option value="Kilo de Chicharrón a la Leña (con camote y zarza)">Kilo de Chicharrón a la Leña (con camote y zarza)</option>
+                                    <option value="Medio Kilo de Chicharrón a la Leña">Medio Kilo de Chicharrón a la Leña</option>
+                                    <option value="Porción Personal de Chicharrón">Porción Personal de Chicharrón</option>
+                                    <option value="Porción de Panceta Crocante">Porción de Panceta Crocante</option>
+                                    <option value="Tamal Criollo Especial">Tamal Criollo Especial</option>
+                                    <option value="Pastel de Acelga Tradicional">Pastel de Acelga Tradicional</option>
+                                    <option value="Sándwich de Chicharrón Especial">Sándwich de Chicharrón Especial</option>
+                                    <option value="Sándwich de Pavo Asado Tradicional">Sándwich de Pavo Asado Tradicional</option>
+                                </optgroup>
+                                <optgroup label="☕ Cafetería y Jugos Naturales">
+                                    <option value="Café Pasado de Altura (Grande)">Café Pasado de Altura (Grande)</option>
+                                    <option value="Café Americano Seleccionado">Café Americano Seleccionado</option>
+                                    <option value="Café con Leche / Capuchino">Café con Leche / Capuchino</option>
+                                    <option value="Jugo Especial Danilo">Jugo Especial Danilo</option>
+                                    <option value="Jugo Surtido con Fruta Fresca">Jugo Surtido con Fruta Fresca</option>
+                                    <option value="Jugo de Fresa con Leche">Jugo de Fresa con Leche</option>
+                                    <option value="Jugo Natural de Papaya">Jugo Natural de Papaya</option>
+                                    <option value="Jugo Natural de Naranja">Jugo Natural de Naranja</option>
+                                </optgroup>
+                                <optgroup label="🍰 Postres Caseros y Pastelería">
+                                    <option value="Torta Danilo de Chocolate Especial">Torta Danilo de Chocolate Especial</option>
+                                    <option value="Crema Volteada Artesanal">Crema Volteada Artesanal</option>
+                                    <option value="Pie de Manzana Tradicional">Pie de Manzana Tradicional</option>
+                                    <option value="Tres Leches Danilo">Tres Leches Danilo</option>
+                                    <option value="Empanada de Carne Tradicional">Empanada de Carne Tradicional</option>
+                                </optgroup>
+                            </select>
                         </div>
                         <div class="form-group flex-1">
                             <label for="order-cantidad"><i class="fa-solid fa-hashtag"></i> Cantidad *</label>
@@ -304,8 +338,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="order-notas"><i class="fa-solid fa-location-dot"></i> Dirección o Indicaciones Especiales</label>
-                        <textarea id="order-notas" name="direccion_notas" class="form-control" rows="2" placeholder="Dirección exacta en Chaclacayo, referencias o especificaciones..."></textarea>
+                        <label for="order-notas"><i class="fa-solid fa-location-dot"></i> Dirección o Indicaciones Especiales *</label>
+                        <textarea id="order-notas" name="direccion_notas" class="form-control" rows="2" placeholder="Dirección exacta en Chaclacayo, referencias o especificaciones del pedido..." required></textarea>
                     </div>
                 </div>
 

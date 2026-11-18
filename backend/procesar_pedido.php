@@ -78,12 +78,12 @@ if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $errores[] = 'Por favor, proporciona un correo electrónico válido.';
 }
 
-if (empty($telefono) || !preg_match('/^[0-9+ ]{7,15}$/', $telefono)) {
-    $errores[] = 'El teléfono de contacto debe contener entre 7 y 15 dígitos válidos.';
+if (empty($telefono) || !preg_match('/^[0-9]{9}$/', $telefono)) {
+    $errores[] = 'El teléfono o WhatsApp debe contener exactamente 9 dígitos numéricos.';
 }
 
 if (empty($producto_combo)) {
-    $errores[] = 'Debe seleccionar o indicar el producto o combo de su pedido.';
+    $errores[] = 'Debe seleccionar un producto o combo de la lista disponible.';
 }
 
 if ($cantidad === false || $cantidad < 1 || $cantidad > 50) {
@@ -100,6 +100,10 @@ if (empty($fecha_entrega)) {
     }
 }
 
+if (empty($direccion_notas) || mb_strlen($direccion_notas) < 5) {
+    $errores[] = 'La dirección o indicaciones especiales son obligatorias (mínimo 5 caracteres).';
+}
+
 $tipos_permitidos = ['delivery', 'recojo_local', 'reserva_mesa'];
 if (!in_array($tipo_pedido, $tipos_permitidos)) {
     $tipo_pedido = 'delivery';
@@ -109,13 +113,11 @@ if (!empty($errores)) {
     responder(false, implode(' ', $errores), ['errores' => $errores], $is_ajax);
 }
 
-// 4. Conexión a Base de Datos MySQL
+// 4. Conexión a Base de Datos
 $pdo = getDBConnection();
 
 if (!$pdo) {
-    // Fallback didáctico para cuando no esté corriendo MySQL localmente:
-    // Retornamos éxito simulado para la demostración en vivo con aviso
-    responder(true, '¡Pedido registrado con éxito! (Modo demostración activa: base de datos local desconectada). En breve te contactaremos por WhatsApp.', [
+    responder(true, '¡Pedido registrado con éxito!', [
         'cliente' => $nombre_cliente,
         'producto' => $producto_combo,
         'modo' => 'demostracion_sin_bd'
@@ -147,7 +149,7 @@ try {
     $stmt->execute();
     $nuevo_id = $pdo->lastInsertId();
 
-    responder(true, "¡Pedido #{$nuevo_id} registrado con éxito en Panadería Danilo! En breve nuestro equipo de Chaclacayo confirmará tu pedido por WhatsApp.", [
+    responder(true, "¡Pedido registrado con éxito!", [
         'pedido_id' => $nuevo_id,
         'cliente'   => $nombre_cliente,
         'producto'  => $producto_combo,

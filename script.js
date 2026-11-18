@@ -134,7 +134,14 @@ function initOrderModal() {
         document.body.style.overflow = "hidden";
 
         if (productoInput && productName) {
-            productoInput.value = productName;
+            let matched = false;
+            for (let opt of productoInput.options) {
+                if (opt.value && (opt.value.toLowerCase().includes(productName.toLowerCase()) || productName.toLowerCase().includes(opt.value.toLowerCase()))) {
+                    productoInput.value = opt.value;
+                    matched = true;
+                    break;
+                }
+            }
         }
 
         const firstInput = modal.querySelector("input:not([type='hidden']), select");
@@ -183,16 +190,24 @@ function initOrderModal() {
         }
     });
 
+    // Restricción en tiempo real: Solo números y máximo 9 dígitos en teléfono
+    const telefonoInput = document.getElementById("order-telefono");
+    if (telefonoInput) {
+        telefonoInput.addEventListener("input", (e) => {
+            e.target.value = e.target.value.replace(/\D/g, "").slice(0, 9);
+        });
+    }
+
     // Procesamiento y Validación del Formulario de Pedido (AJAX a PHP)
     if (orderForm) {
         orderForm.addEventListener("submit", async (e) => {
             e.preventDefault();
 
             const nombreInput = document.getElementById("order-nombre");
-            const telefonoInput = document.getElementById("order-telefono");
             const emailInput = document.getElementById("order-email");
+            const notasInput = document.getElementById("order-notas");
 
-            // Validación del lado del cliente
+            // 1. Validación de Nombre Completo
             if (!nombreInput.value.trim() || nombreInput.value.trim().length < 3) {
                 showToast("Por favor, ingresa tu nombre completo (mínimo 3 letras).", "error");
                 nombreInput.focus();
@@ -200,19 +215,43 @@ function initOrderModal() {
                 return;
             }
 
-            const phoneRegex = /^[0-9+ ]{7,15}$/;
-            if (!phoneRegex.test(telefonoInput.value.trim())) {
-                showToast("Por favor, ingresa un teléfono o WhatsApp válido (7 a 15 dígitos).", "error");
-                telefonoInput.focus();
-                telefonoInput.classList.add("input-error");
+            // 2. Validación de Teléfono (Exactamente 9 dígitos numéricos)
+            const phoneDigits = telefonoInput ? telefonoInput.value.trim().replace(/\D/g, "") : "";
+            if (phoneDigits.length !== 9) {
+                showToast("El teléfono debe contener exactamente 9 dígitos numéricos.", "error");
+                if (telefonoInput) {
+                    telefonoInput.focus();
+                    telefonoInput.classList.add("input-error");
+                }
                 return;
             }
 
+            // 3. Validación de Correo Electrónico
             const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
             if (!emailRegex.test(emailInput.value.trim())) {
                 showToast("Por favor, ingresa un correo electrónico válido.", "error");
                 emailInput.focus();
                 emailInput.classList.add("input-error");
+                return;
+            }
+
+            // 4. Validación de Producto / Combo seleccionado
+            if (!productoInput || !productoInput.value || productoInput.value === "") {
+                showToast("Por favor, selecciona un producto o combo disponible.", "error");
+                if (productoInput) {
+                    productoInput.focus();
+                    productoInput.classList.add("input-error");
+                }
+                return;
+            }
+
+            // 5. Validación de Dirección / Indicaciones (Obligatorio)
+            if (!notasInput || !notasInput.value.trim() || notasInput.value.trim().length < 5) {
+                showToast("Por favor, ingresa tu dirección o indicaciones de entrega (mínimo 5 caracteres).", "error");
+                if (notasInput) {
+                    notasInput.focus();
+                    notasInput.classList.add("input-error");
+                }
                 return;
             }
 
@@ -230,10 +269,6 @@ function initOrderModal() {
                 ? "http://localhost:8000/backend/procesar_pedido.php"
                 : "backend/procesar_pedido.php";
 
-            const viewEndpoint = (window.location.protocol === "file:")
-                ? "http://localhost:8000/backend/ver_pedidos.php"
-                : "backend/ver_pedidos.php";
-
             try {
                 const response = await fetch(backendEndpoint, {
                     method: "POST",
@@ -246,15 +281,11 @@ function initOrderModal() {
                 const result = await response.json();
 
                 if (result.success) {
-                    showToast(
-                        `${result.message} <br><a href="${viewEndpoint}" target="_blank" style="display:inline-block; margin-top:8px; padding:6px 12px; background:#c8914b; color:#fff; border-radius:4px; text-decoration:none; font-weight:700; font-size:0.85rem;"><i class="fa-solid fa-table-list"></i> Ver pedido en el Panel Backend &rarr;</a>`,
-                        "success",
-                        10000
-                    );
+                    showToast("¡Pedido registrado con éxito!", "success", 4000);
                     orderForm.reset();
                     setTimeout(() => {
                         closeModal();
-                    }, 2200);
+                    }, 1600);
                 } else {
                     showToast(result.message || "Error al procesar el pedido.", "error");
                 }
